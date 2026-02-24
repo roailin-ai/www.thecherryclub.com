@@ -1,2 +1,3 @@
 # www.thecherryclub.com
-Página web oficial de TheCherryClub
+Página web oficial de TheCherryClub 🍒🌟
+Tienda de Maquillaje, Skincare y mucho más...
