@@ -1,180 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheCherryClub</title>
+<title>Tienda Beauty</title>
 
 <style>
+
 body{
+ font-family:Arial;
  margin:0;
- font-family:'Poppins',sans-serif;
- background:#f8f8f8;
- background-image:url("https://i.imgur.com/8Km9tLL.png");
- background-size:150px;
+ background:#fff0f6;
 }
 
-.banner{
- background:linear-gradient(90deg,#5c0a1d,#8b1e3f);
- color:white;
- text-align:center;
- padding:40px 20px;
-}
+/* ===== BOTONES SUPERIORES ===== */
 
-.banner h1{font-size:40px;margin:0;}
-.banner p{margin-top:10px;font-size:18px;}
-
-h2{color:#5c0a1d;text-align:center;}
-
-details{margin:10px 0;}
-summary{cursor:pointer;font-weight:bold;font-size:18px;color:#5c0a1d;padding:8px;}
-
-.productos{
- display:flex;
- flex-wrap:wrap;
- gap:15px;
- margin-top:15px;
-}
-
-.card{
- background:white;
- padding:12px;
- width:200px;
- border-radius:15px;
- box-shadow:0 5px 15px rgba(0,0,0,0.1);
- text-align:center;
- transition:.3s;
-}
-
-.card:hover{transform:scale(1.05);}
-.card img{width:100%;border-radius:10px;}
-
-.precio{font-weight:bold;margin:8px 0;color:#5c0a1d;}
-
-input[type="number"]{
- width:60px;
- padding:5px;
- border-radius:10px;
- border:1px solid #ccc;
- text-align:center;
-}
-
-.boton{
- display:inline-block;
- padding:8px 14px;
+.btn-menu, .btn-carrito{
+ position:fixed;
+ top:15px;
  background:#8b1e3f;
  color:white;
  border:none;
- border-radius:20px;
+ border-radius:50%;
+ width:45px;
+ height:45px;
+ font-size:20px;
  cursor:pointer;
- margin-top:5px;
+ z-index:1100;
 }
 
-.boton:hover{background:#5c0a1d;}
+.btn-menu{ left:15px; }
+.btn-carrito{ right:15px; }
 
-/* CONTENIDO */
-.contenido{margin-right:320px;padding:20px;}
+/* ===== MENU LATERAL IZQUIERDO ===== */
 
-/* CARRITO */
+.menu-lateral{
+ position:fixed;
+ left:-320px;
+ top:0;
+ width:300px;
+ height:100%;
+ background:white;
+ box-shadow:5px 0 15px rgba(0,0,0,0.2);
+ padding:20px;
+ overflow-y:auto;
+ transition:.3s;
+ z-index:1000;
+}
+
+.menu-lateral.activo{
+ left:0;
+}
+
+/* ===== CARRITO ===== */
+
 .carrito{
  position:fixed;
- right:0;
+ right:-340px;
  top:0;
  width:300px;
  height:100%;
  background:white;
  box-shadow:-5px 0 15px rgba(0,0,0,0.2);
- padding:15px;
- overflow-y:auto;
+ padding:20px;
+ transition:.3s;
+ z-index:1000;
 }
 
-.carrito h3{text-align:center;color:#5c0a1d;}
-
-.item-carrito{
- border-bottom:1px solid #eee;
- padding:8px 0;
- font-size:14px;
+.carrito.activo{
+ right:0;
 }
 
-.total{
+/* ===== PRODUCTOS ===== */
+
+.productos{
+ display:flex;
+ gap:15px;
+ flex-wrap:wrap;
+}
+
+.card{
+ background:white;
+ padding:10px;
+ border-radius:10px;
+ box-shadow:0 0 10px rgba(0,0,0,0.1);
+ text-align:center;
+ width:200px;
+}
+
+.card img{
+ width:100%;
+ border-radius:10px;
+}
+
+.precio{
  font-weight:bold;
- margin-top:10px;
- font-size:16px;
- color:#5c0a1d;
+ color:#8b1e3f;
 }
 
-/* CONTADOR */
-.contador{
- position:fixed;
- top:15px;
- right:320px;
+.boton{
  background:#8b1e3f;
  color:white;
- border-radius:50%;
- width:35px;
- height:35px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-weight:bold;
- box-shadow:0 3px 10px rgba(0,0,0,0.2);
- z-index:999;
+ border:none;
+ padding:8px;
+ border-radius:8px;
+ cursor:pointer;
+ margin-top:5px;
 }
 
-/* BOTON WHATSAPP */
-.whatsapp{
- position:fixed;
- bottom:20px;
- right:20px;
- width:60px;
- height:60px;
- background:#25D366;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- box-shadow:0 5px 15px rgba(0,0,0,0.3);
- z-index:999;
-}
-
-.whatsapp img{width:35px;}
-
-/* 📱 MOBILE */
-@media(max-width:768px){
-
-.contenido{margin-right:0;padding:10px;}
-
-.carrito{
- position:relative;
- width:100%;
- height:auto;
- box-shadow:none;
-}
-
-.contador{
- right:20px;
- top:10px;
-}
-
-.productos{justify-content:center;}
-.card{width:45%;}
-
-}
 </style>
 </head>
 
 <body>
 
-<div class="banner">
- <h1>🍒 TheCherryClub</h1>
- <p>Productos testeados 100% por ANMAT</p>
-</div>
+<!-- BOTONES -->
+<button class="btn-menu" onclick="toggleMenu()">☰</button>
+<button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
 
-<!-- CONTADOR -->
-<div class="contador" id="contador">0</div>
+<!-- ===== MENU LATERAL (PRODUCTOS) ===== -->
 
-<div class="contenido">
-<section>
+<div class="menu-lateral" id="menu">
+
 <h2>Nuestros Productos</h2>
 
 <!-- MAQUILLAJE -->
@@ -190,7 +136,9 @@ input[type="number"]{
 <h4>Base HD</h4>
 <p class="precio">$5500</p>
 <input type="number" min="1" value="1" id="basehd">
-<button class="boton" onclick="agregarAlCarrito('Base HD',5500,'basehd')">Agregar 🛒</button>
+<button class="boton" onclick="agregarAlCarrito('Base HD',5500,'basehd')">
+Agregar 🛒
+</button>
 </div>
 
 <div class="card">
@@ -198,7 +146,9 @@ input[type="number"]{
 <h4>Base Matte</h4>
 <p class="precio">$5500</p>
 <input type="number" min="1" value="1" id="basematte">
-<button class="boton" onclick="agregarAlCarrito('Base Matte',5500,'basematte')">Agregar 🛒</button>
+<button class="boton" onclick="agregarAlCarrito('Base Matte',5500,'basematte')">
+Agregar 🛒
+</button>
 </div>
 
 </div>
@@ -270,76 +220,41 @@ input[type="number"]{
 <details><summary>Depilador Facial</summary></details>
 </details>
 
-</section>
 </div>
 
-<!-- CARRITO -->
+<!-- ===== CARRITO ===== -->
+
 <div class="carrito">
-<h3>🛍 Tu Carrito</h3>
-<div id="listaCarrito"></div>
-<p class="total">Total: $<span id="total">0</span></p>
-<button class="boton" onclick="enviarWhatsApp()">Finalizar Compra 💬</button>
+<h3>🛒 Tu carrito</h3>
+<ul id="lista-carrito"></ul>
+<p>Total: $<span id="total">0</span></p>
 </div>
-
-<!-- BOTON WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/5492604204573" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
 
 <script>
-let carrito = [];
 
-function agregarAlCarrito(nombre, precio, idCantidad){
- const cantidad = parseInt(document.getElementById(idCantidad).value);
- const existente = carrito.find(p=>p.nombre===nombre);
+let total = 0;
 
- if(existente){existente.cantidad += cantidad;}
- else{carrito.push({nombre,precio,cantidad});}
+function agregarAlCarrito(nombre,precio,idCantidad){
+ let cantidad = parseInt(document.getElementById(idCantidad).value);
+ let lista = document.getElementById("lista-carrito");
 
- actualizarCarrito();
+ let item = document.createElement("li");
+ item.textContent = `${nombre} x${cantidad} - $${precio*cantidad}`;
+
+ lista.appendChild(item);
+
+ total += precio*cantidad;
+ document.getElementById("total").textContent = total;
 }
 
-function eliminarProducto(nombre){
- carrito = carrito.filter(p=>p.nombre!==nombre);
- actualizarCarrito();
+function toggleMenu(){
+ document.getElementById("menu").classList.toggle("activo");
 }
 
-function actualizarCarrito(){
- const lista=document.getElementById("listaCarrito");
- const totalSpan=document.getElementById("total");
- const contador=document.getElementById("contador");
-
- lista.innerHTML="";
- let total=0;
- let cantidadTotal=0;
-
- carrito.forEach(producto=>{
-  total += producto.precio*producto.cantidad;
-  cantidadTotal += producto.cantidad;
-
-  lista.innerHTML += `
-  <div class="item-carrito">
-  ${producto.nombre} x${producto.cantidad}<br>
-  $${producto.precio*producto.cantidad}<br>
-  <span style="color:red;cursor:pointer" onclick="eliminarProducto('${producto.nombre}')">Eliminar ❌</span>
-  </div>`;
- });
-
- totalSpan.textContent=total;
- contador.textContent=cantidadTotal;
+function toggleCarrito(){
+ document.querySelector(".carrito").classList.toggle("activo");
 }
 
-function enviarWhatsApp(){
- const numero="5492604204573";
- let mensaje="Hola! Quiero comprar:%0A";
-
- carrito.forEach(p=>{
-  mensaje+=`- ${p.nombre} x${p.cantidad} = $${p.precio*p.cantidad}%0A`;
- });
-
- mensaje+=`%0ATotal: $${document.getElementById("total").textContent}`;
- window.open(`https://wa.me/${numero}?text=${mensaje}`,'_blank');
-}
 </script>
 
 </body>
