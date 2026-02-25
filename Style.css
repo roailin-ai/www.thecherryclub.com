@@ -1,1 +1,324 @@
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Arial', sans-serif;
+}
 
+/* ================= COLORES BASE ================= */
+:root{
+  --borgona:#8b1e3f;
+  --borgona-soft:#b13a5b;
+  --rosa:#fff0f6;
+  --blanco:#ffffff;
+  --gris:#f5f5f5;
+  --negro:#111;
+}
+
+/* ================= BODY ================= */
+body{
+  background: var(--rosa);
+  color: var(--negro);
+}
+
+/* ================= BOTONES FLOTANTES ================= */
+.btn-menu, .btn-carrito{
+  position:fixed;
+  top:15px;
+  background:var(--borgona);
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+  font-size:20px;
+  cursor:pointer;
+  z-index:1200;
+  transition:.3s;
+}
+
+.btn-menu:hover, .btn-carrito:hover{
+  transform:scale(1.1);
+  background:var(--borgona-soft);
+}
+
+.btn-menu{ left:15px; }
+.btn-carrito{ right:15px; }
+
+/* ================= CABECERA ================= */
+.cabecera{
+  width:100%;
+  background:white;
+}
+
+/* Banner */
+.banner-img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+/* Hero */
+.hero{
+  padding:30px 15px;
+  text-align:center;
+  background:white;
+}
+
+.hero-logo{
+  width:120px;
+  margin-bottom:10px;
+}
+
+.hero-title{
+  color:var(--borgona);
+  font-size:2rem;
+}
+
+.hero-slogan{
+  color:#555;
+  margin-bottom:15px;
+}
+
+/* ================= BUSCADOR ================= */
+.hero-search{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-search input{
+  padding:10px 15px;
+  width:250px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  outline:none;
+}
+
+.icono-lupa{
+  margin-left:-35px;
+  color:black;
+  cursor:pointer;
+}
+
+/* ================= CUERPO ================= */
+.cuerpo{
+  background:white;
+  padding:30px 15px;
+}
+
+/* ================= FILTROS ================= */
+.filtros{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:25px;
+}
+
+.filtros button{
+  padding:8px 15px;
+  border-radius:20px;
+  border:1px solid var(--borgona);
+  background:white;
+  color:var(--borgona);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.filtros button:hover{
+  background:var(--borgona);
+  color:white;
+}
+
+/* ================= CATÁLOGO ================= */
+.catalogo{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap:20px;
+  margin-bottom:50px;
+}
+
+/* ================= MARCAS ================= */
+.marcas{
+  text-align:center;
+  margin:50px 0;
+}
+
+.frase-marcas{
+  color:#666;
+  margin:10px 0 20px;
+}
+
+.logos-marcas{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.logos-marcas img{
+  width:100px;
+  opacity:.8;
+  transition:.3s;
+}
+
+.logos-marcas img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+
+/* ================= REGALOS SLIDER ================= */
+.regalos{
+  text-align:center;
+  margin-top:50px;
+}
+
+.slider-regalos{
+  margin-top:20px;
+  display:flex;
+  overflow:hidden;
+  gap:20px;
+  justify-content:center;
+}
+
+.slider-regalos img{
+  width:200px;
+  border-radius:15px;
+  animation: slide 12s infinite;
+}
+
+/* Animación slider */
+@keyframes slide{
+  0%{ transform:translateX(0); }
+  25%{ transform:translateX(-10px); }
+  50%{ transform:translateX(-20px); }
+  75%{ transform:translateX(-10px); }
+  100%{ transform:translateX(0); }
+}
+
+/* ================= MENU LATERAL ================= */
+.menu-lateral{
+  position:fixed;
+  left:-320px;
+  top:0;
+  width:300px;
+  height:100%;
+  background:white;
+  box-shadow:5px 0 15px rgba(0,0,0,0.2);
+  padding:20px;
+  overflow-y:auto;
+  transition:.3s;
+  z-index:1100;
+}
+
+.menu-lateral.activo{
+  left:0;
+}
+
+/* ================= PRODUCTOS ================= */
+.productos{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.card{
+  background:white;
+  padding:10px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.08);
+  text-align:center;
+  width:180px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+.precio{
+  font-weight:bold;
+  color:var(--borgona);
+}
+
+/* ================= BOTONES ================= */
+.boton{
+  background:var(--borgona);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:5px;
+  transition:.3s;
+}
+
+.boton:hover{
+  background:var(--borgona-soft);
+}
+
+/* ================= CARRITO ================= */
+.carrito{
+  position:fixed;
+  right:-340px;
+  top:0;
+  width:300px;
+  height:100%;
+  background:white;
+  box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+  padding:20px;
+  transition:.3s;
+  z-index:1100;
+}
+
+.carrito.activo{
+  right:0;
+}
+
+.carrito h3{
+  margin-bottom:15px;
+}
+
+#lista-carrito{
+  list-style:none;
+  margin-bottom:15px;
+}
+
+.whatsapp{
+  background:#25D366;
+  width:100%;
+  margin-top:10px;
+}
+
+.instagram{
+  background:#E1306C;
+  width:100%;
+  display:block;
+  text-align:center;
+  margin-top:10px;
+  text-decoration:none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:600px){
+  .banner-img{
+    height:200px;
+  }
+
+  .hero-title{
+    font-size:1.6rem;
+  }
+
+  .slider-regalos img{
+    width:150px;
+  }
+}
