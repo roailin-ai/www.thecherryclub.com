@@ -1,107 +1,346 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TheCherryClub 🍒</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #fff0f5;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheCherryClub</title>
 
-    header {
-      background-color: #ff4d6d;
-      color: white;
-      padding: 20px;
-      font-size: 28px;
-    }
+<style>
+body{
+ margin:0;
+ font-family:'Poppins',sans-serif;
+ background:#f8f8f8;
+ background-image:url("https://i.imgur.com/8Km9tLL.png");
+ background-size:150px;
+}
 
-    section {
-      padding: 40px 20px;
-    }
+.banner{
+ background:linear-gradient(90deg,#5c0a1d,#8b1e3f);
+ color:white;
+ text-align:center;
+ padding:40px 20px;
+}
 
-    .productos {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.banner h1{font-size:40px;margin:0;}
+.banner p{margin-top:10px;font-size:18px;}
 
-    .card {
-      background: white;
-      padding: 15px;
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+h2{color:#5c0a1d;text-align:center;}
 
-    .boton {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #ff4d6d;
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-    }
+details{margin:10px 0;}
+summary{cursor:pointer;font-weight:bold;font-size:18px;color:#5c0a1d;padding:8px;}
 
-    footer {
-      background-color: #ffccd5;
-      padding: 20px;
-      margin-top: 30px;
-    }
-  </style>
+.productos{
+ display:flex;
+ flex-wrap:wrap;
+ gap:15px;
+ margin-top:15px;
+}
+
+.card{
+ background:white;
+ padding:12px;
+ width:200px;
+ border-radius:15px;
+ box-shadow:0 5px 15px rgba(0,0,0,0.1);
+ text-align:center;
+ transition:.3s;
+}
+
+.card:hover{transform:scale(1.05);}
+.card img{width:100%;border-radius:10px;}
+
+.precio{font-weight:bold;margin:8px 0;color:#5c0a1d;}
+
+input[type="number"]{
+ width:60px;
+ padding:5px;
+ border-radius:10px;
+ border:1px solid #ccc;
+ text-align:center;
+}
+
+.boton{
+ display:inline-block;
+ padding:8px 14px;
+ background:#8b1e3f;
+ color:white;
+ border:none;
+ border-radius:20px;
+ cursor:pointer;
+ margin-top:5px;
+}
+
+.boton:hover{background:#5c0a1d;}
+
+/* CONTENIDO */
+.contenido{margin-right:320px;padding:20px;}
+
+/* CARRITO */
+.carrito{
+ position:fixed;
+ right:0;
+ top:0;
+ width:300px;
+ height:100%;
+ background:white;
+ box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+ padding:15px;
+ overflow-y:auto;
+}
+
+.carrito h3{text-align:center;color:#5c0a1d;}
+
+.item-carrito{
+ border-bottom:1px solid #eee;
+ padding:8px 0;
+ font-size:14px;
+}
+
+.total{
+ font-weight:bold;
+ margin-top:10px;
+ font-size:16px;
+ color:#5c0a1d;
+}
+
+/* CONTADOR */
+.contador{
+ position:fixed;
+ top:15px;
+ right:320px;
+ background:#8b1e3f;
+ color:white;
+ border-radius:50%;
+ width:35px;
+ height:35px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-weight:bold;
+ box-shadow:0 3px 10px rgba(0,0,0,0.2);
+ z-index:999;
+}
+
+/* BOTON WHATSAPP */
+.whatsapp{
+ position:fixed;
+ bottom:20px;
+ right:20px;
+ width:60px;
+ height:60px;
+ background:#25D366;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ box-shadow:0 5px 15px rgba(0,0,0,0.3);
+ z-index:999;
+}
+
+.whatsapp img{width:35px;}
+
+/* 📱 MOBILE */
+@media(max-width:768px){
+
+.contenido{margin-right:0;padding:10px;}
+
+.carrito{
+ position:relative;
+ width:100%;
+ height:auto;
+ box-shadow:none;
+}
+
+.contador{
+ right:20px;
+ top:10px;
+}
+
+.productos{justify-content:center;}
+.card{width:45%;}
+
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  TheCherryClub 🍒
-</header>
+<div class="banner">
+ <h1>🍒 TheCherryClub</h1>
+ <p>Productos testeados 100% por ANMAT</p>
+</div>
 
+<!-- CONTADOR -->
+<div class="contador" id="contador">0</div>
+
+<div class="contenido">
 <section>
-  <h2>Bienvenida a nuestra tienda</h2>
-  <p>Maquillaje, skincare y accesorios que resaltan tu belleza ✨</p>
+<h2>Nuestros Productos</h2>
+
+<!-- MAQUILLAJE -->
+<details>
+<summary><strong>💄 Maquillaje</strong></summary>
+
+<details>
+<summary>Base</summary>
+<div class="productos">
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h4>Base HD</h4>
+<p class="precio">$5500</p>
+<input type="number" min="1" value="1" id="basehd">
+<button class="boton" onclick="agregarAlCarrito('Base HD',5500,'basehd')">Agregar 🛒</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h4>Base Matte</h4>
+<p class="precio">$5500</p>
+<input type="number" min="1" value="1" id="basematte">
+<button class="boton" onclick="agregarAlCarrito('Base Matte',5500,'basematte')">Agregar 🛒</button>
+</div>
+
+</div>
+</details>
+
+<details><summary>Corrector</summary></details>
+<details><summary>Polvo Compacto</summary></details>
+<details><summary>Polvo Translúcido</summary></details>
+<details><summary>Iluminador</summary></details>
+<details><summary>Rubor</summary></details>
+<details><summary>Contorno</summary></details>
+<details><summary>Labios</summary></details>
+<details><summary>Delineador de Ojos</summary></details>
+<details><summary>Sombras</summary></details>
+<details><summary>Máscara de Pestañas</summary></details>
+<details><summary>Cejas</summary></details>
+<details><summary>Brochas - Esponjas</summary></details>
+
+</details>
+
+<!-- SKINCARE -->
+<details>
+<summary><strong>🧴 Skincare</strong></summary>
+<details><summary>Serum</summary></details>
+<details><summary>Fijador</summary></details>
+<details><summary>Primer</summary></details>
+<details><summary>Limpiador Facial</summary></details>
+<details><summary>Mascarillas</summary></details>
+</details>
+
+<!-- ACCESORIOS -->
+<details>
+<summary><strong>💎 Accesorios</strong></summary>
+<details><summary>Vinchas de Skincare</summary></details>
+<details><summary>Broches de Pelo</summary></details>
+<details><summary>Colitas de Pelo</summary></details>
+<details><summary>Guantes Exfoliantes</summary></details>
+<details><summary>Arqueadores de Pestañas</summary></details>
+<details><summary>Repuesto Arqueador de Pestañas</summary></details>
+<details><summary>Perfiladores</summary></details>
+<details><summary>Rodillo de Jade</summary></details>
+<details><summary>Piedra Guasha</summary></details>
+<details><summary>Pinza de Depilar</summary></details>
+<details><summary>Cepillo Masajeador de Cuero Cabelludo "DUCHA"</summary></details>
+<details><summary>Set de Botellas para Viaje</summary></details>
+<details><summary>Agujas para Puntos Negros</summary></details>
+<details><summary>Espejo + Cepillo para Cartera</summary></details>
+<details><summary>Perfumeros</summary></details>
+<details><summary>Limas de Uñas</summary></details>
+</details>
+
+<!-- PORTACOSMETICOS -->
+<details>
+<summary><strong>🎀 Portacosméticos</strong></summary>
+</details>
+
+<!-- PESTAÑAS -->
+<details>
+<summary><strong>👁️ Pestañas</strong></summary>
+<details><summary>Pegamento de Pestañas</summary></details>
+<details><summary>Pestañas Postizas</summary></details>
+</details>
+
+<!-- ELECTRONICOS -->
+<details>
+<summary><strong>⚡ Electrónicos</strong></summary>
+<details><summary>Espejos LED</summary></details>
+<details><summary>Limpiadores Faciales</summary></details>
+<details><summary>Depilador Facial</summary></details>
+</details>
+
 </section>
+</div>
 
-<section>
-  <h2>Nuestros Productos</h2>
-  <div class="productos">
-    <div class="card">
-      <h3>Labial Matte</h3>
-      <p>$10</p>
-    </div>
+<!-- CARRITO -->
+<div class="carrito">
+<h3>🛍 Tu Carrito</h3>
+<div id="listaCarrito"></div>
+<p class="total">Total: $<span id="total">0</span></p>
+<button class="boton" onclick="enviarWhatsApp()">Finalizar Compra 💬</button>
+</div>
 
-    <div class="card">
-      <h3>Serum Facial</h3>
-      <p>$18</p>
-    </div>
+<!-- BOTON WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5492604204573" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
 
-    <div class="card">
-      <h3>Rubor Cherry</h3>
-      <p>$12</p>
-    </div>
-  </div>
-</section>
+<script>
+let carrito = [];
 
-<section>
-  <h2>Hacé tu pedido</h2>
-  <a class="boton" href="https://wa.me/XXXXXXXXXXX" target="_blank">
-    Comprar por WhatsApp 💬
-  </a>
-</section>
+function agregarAlCarrito(nombre, precio, idCantidad){
+ const cantidad = parseInt(document.getElementById(idCantidad).value);
+ const existente = carrito.find(p=>p.nombre===nombre);
 
-<section>
-  <h2>Seguinos en Instagram</h2>
-  <a class="boton" href="https://instagram.com/TUUSUARIO" target="_blank">
-    @TheCherryClub 📷
-  </a>
-</section>
+ if(existente){existente.cantidad += cantidad;}
+ else{carrito.push({nombre,precio,cantidad});}
 
-<footer>
-  © 2026 TheCherryClub - Todos los derechos reservados
-</footer>
+ actualizarCarrito();
+}
+
+function eliminarProducto(nombre){
+ carrito = carrito.filter(p=>p.nombre!==nombre);
+ actualizarCarrito();
+}
+
+function actualizarCarrito(){
+ const lista=document.getElementById("listaCarrito");
+ const totalSpan=document.getElementById("total");
+ const contador=document.getElementById("contador");
+
+ lista.innerHTML="";
+ let total=0;
+ let cantidadTotal=0;
+
+ carrito.forEach(producto=>{
+  total += producto.precio*producto.cantidad;
+  cantidadTotal += producto.cantidad;
+
+  lista.innerHTML += `
+  <div class="item-carrito">
+  ${producto.nombre} x${producto.cantidad}<br>
+  $${producto.precio*producto.cantidad}<br>
+  <span style="color:red;cursor:pointer" onclick="eliminarProducto('${producto.nombre}')">Eliminar ❌</span>
+  </div>`;
+ });
+
+ totalSpan.textContent=total;
+ contador.textContent=cantidadTotal;
+}
+
+function enviarWhatsApp(){
+ const numero="5492604204573";
+ let mensaje="Hola! Quiero comprar:%0A";
+
+ carrito.forEach(p=>{
+  mensaje+=`- ${p.nombre} x${p.cantidad} = $${p.precio*p.cantidad}%0A`;
+ });
+
+ mensaje+=`%0ATotal: $${document.getElementById("total").textContent}`;
+ window.open(`https://wa.me/${numero}?text=${mensaje}`,'_blank');
+}
+</script>
 
 </body>
 </html>
