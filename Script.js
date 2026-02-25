@@ -70,8 +70,7 @@ function finalizarCompra(){
   mensaje += `%0A💰 Total: $${total}`;
 
   // 📲 TU NÚMERO (solo acá)
-  let telefono = "54911XXXXXXXX"; 
-  // ejemplo real: 5491123456789
+  let telefono = "5492604204573"; 
 
   let url = `https://wa.me/${telefono}?text=${mensaje}`;
   window.open(url, "_blank");
