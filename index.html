@@ -16,31 +16,86 @@
 <button class="btn-menu" onclick="toggleMenu()">☰</button>
 <button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
 
-<!-- ===== HERO / BANNER PRINCIPAL ===== -->
-<section class="hero">
+<!-- ================= HERO / CABECERA ================= -->
+<header class="cabecera">
 
-  <div class="hero-content">
-
-    <!-- Logo -->
-    <img src="logo.png" alt="The Cherry Club Logo" class="hero-logo">
-
-    <!-- Nombre marca -->
-    <h1 class="hero-title">The Cherry Club 🍒</h1>
-
-    <!-- Frase -->
-    <p class="hero-slogan">Where girly meets cherry</p>
-
-    <!-- Buscador -->
-    <div class="hero-search">
-      <input type="text" id="searchInput" placeholder="Buscar productos...">
-      <button onclick="buscarProducto()">Buscar</button>
-    </div>
-
+  <!-- Imagen cabecera -->
+  <div class="banner">
+    <!-- Imagen desde Canva -->
+    <img src="img/cabecera.jpg" alt="The Cherry Club Banner" class="banner-img">
   </div>
 
-</section>
+  <section class="hero">
 
-<!-- ===== MENU LATERAL ===== -->
+    <div class="hero-content">
+
+      <!-- Logo -->
+      <img src="logo.png" alt="The Cherry Club Logo" class="hero-logo">
+
+      <!-- Nombre marca -->
+      <h1 class="hero-title">The Cherry Club 🍒</h1>
+
+      <!-- Frase -->
+      <p class="hero-slogan">Where girly meets cherry</p>
+
+      <!-- Buscador -->
+      <div class="hero-search">
+        <input type="text" id="buscador" placeholder="Buscar productos...">
+        <span class="icono-lupa">🔍</span>
+      </div>
+
+    </div>
+
+  </section>
+</header>
+
+<!-- ================= CUERPO PRINCIPAL ================= -->
+<main class="cuerpo">
+
+  <!-- ================= FILTROS ================= -->
+  <section class="filtros">
+    <button onclick="filtrarCategoria('maquillaje')">Maquillaje</button>
+    <button onclick="filtrarCategoria('skincare')">Skincare</button>
+    <button onclick="filtrarCategoria('accesorios')">Accesorios</button>
+    <button onclick="filtrarCategoria('pestanas')">Pestañas</button>
+    <button onclick="filtrarCategoria('electronicos')">Electrónicos</button>
+  </section>
+
+  <!-- ================= VISTA CATÁLOGO ================= -->
+  <section class="catalogo" id="catalogo">
+    <!-- Las cards de productos se renderizan acá -->
+  </section>
+
+  <!-- ================= SECCIÓN MARCAS ================= -->
+  <section class="marcas">
+    <h2>Marcas con las que trabajamos</h2>
+    <p class="frase-marcas">Trabajamos con marcas que aman el beauty tanto como vos 💄</p>
+
+    <div class="logos-marcas">
+      <!-- imágenes desde Canva -->
+      <img src="img/marcas/marca1.png" alt="Marca 1">
+      <img src="img/marcas/marca2.png" alt="Marca 2">
+      <img src="img/marcas/marca3.png" alt="Marca 3">
+      <img src="img/marcas/marca4.png" alt="Marca 4">
+    </div>
+  </section>
+
+  <!-- ================= REGALO PERFECTO ================= -->
+  <section class="regalos">
+    <h2>Elegí el regalo perfecto 🎁</h2>
+
+    <div class="slider-regalos" id="sliderRegalos">
+      <!-- imágenes desde Canva -->
+      <img src="img/regalos/regalo1.jpg" class="slide">
+      <img src="img/regalos/regalo2.jpg" class="slide">
+      <img src="img/regalos/regalo3.jpg" class="slide">
+      <img src="img/regalos/regalo4.jpg" class="slide">
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= MENU LATERAL ================= -->
 <div class="menu-lateral" id="menu">
 
 <h2>Nuestros Productos</h2>
@@ -49,12 +104,11 @@
 <details>
   <summary><strong>💄 Maquillaje</strong></summary>
 
-  <!-- Base -->
   <details>
     <summary>Base</summary>
     <div class="productos">
 
-      <div class="card">
+      <div class="card maquillaje">
         <img src="https://via.placeholder.com/200">
         <h4>Base HD</h4>
         <p class="precio">$5500</p>
@@ -64,7 +118,7 @@
         </button>
       </div>
 
-      <div class="card">
+      <div class="card maquillaje">
         <img src="https://via.placeholder.com/200">
         <h4>Base Matte</h4>
         <p class="precio">$5500</p>
@@ -89,13 +143,12 @@
   <details><summary>Máscara de Pestañas</summary></details>
   <details><summary>Cejas</summary></details>
   <details><summary>Brochas - Esponjas</summary></details>
-
 </details>
 
 <!-- ===== SKINCARE ===== -->
 <details>
   <summary><strong>🧴 Skincare</strong></summary>
-  <details><summary>Serum</summary></details>
+</details><summary>Serum</summary></details>
   <details><summary>Fijador</summary></details>
   <details><summary>Primer</summary></details>
   <details><summary>Limpiador Facial</summary></details>
@@ -105,7 +158,7 @@
 <!-- ===== ACCESORIOS ===== -->
 <details>
   <summary><strong>💎 Accesorios</strong></summary>
-  <details><summary>Vinchas de Skincare</summary></details>
+</details><summary>Vinchas de Skincare</summary></details>
   <details><summary>Broches de Pelo</summary></details>
   <details><summary>Colitas de Pelo</summary></details>
   <details><summary>Guantes Exfoliantes</summary></details>
@@ -125,27 +178,26 @@
 
 <!-- ===== PORTACOSMÉTICOS ===== -->
 <details>
-  <summary><strong>🎀 Portacosméticos</strong></summary>
+  <summary><strong>👜 Portacosméticos</strong></summary>
 </details>
 
 <!-- ===== PESTAÑAS ===== -->
 <details>
-  <summary><strong>👁️ Pestañas</strong></summary>
-  <details><summary>Pegamento de Pestañas</summary></details>
-  <details><summary>Pestañas Postizas</summary></details>
+  <summary><strong>Pestañas</strong></summary>
+</details><summary>Pestañas Postizas</summary></details>
 </details>
 
 <!-- ===== ELECTRÓNICOS ===== -->
 <details>
   <summary><strong>⚡ Electrónicos</strong></summary>
-  <details><summary>Espejos LED</summary></details>
+</details><summary>Espejos LED</summary></details>
   <details><summary>Limpiadores Faciales</summary></details>
   <details><summary>Depilador Facial</summary></details>
 </details>
 
 </div>
 
-<!-- ===== CARRITO ===== -->
+<!-- ================= CARRITO ================= -->
 <div class="carrito">
   <h3>🛒 Tu carrito</h3>
   <ul id="lista-carrito"></ul>
@@ -161,9 +213,3 @@
     Seguinos en Instagram 📸
   </a>
 </div>
-
-<!-- JS -->
-<script src="script.js"></script>
-
-</body>
-</html>
