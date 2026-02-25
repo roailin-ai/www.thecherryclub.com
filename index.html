@@ -3,121 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda Beauty</title>
+<title>The Cherry Club</title>
 
-<style>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 
-body{
- font-family:Arial;
- margin:0;
- background:#fff0f6;
-}
-
-/* ===== BOTONES SUPERIORES ===== */
-
-.btn-menu, .btn-carrito{
- position:fixed;
- top:15px;
- background:#8b1e3f;
- color:white;
- border:none;
- border-radius:50%;
- width:45px;
- height:45px;
- font-size:20px;
- cursor:pointer;
- z-index:1100;
-}
-
-.btn-menu{ left:15px; }
-.btn-carrito{ right:15px; }
-
-/* ===== MENU LATERAL IZQUIERDO ===== */
-
-.menu-lateral{
- position:fixed;
- left:-320px;
- top:0;
- width:300px;
- height:100%;
- background:white;
- box-shadow:5px 0 15px rgba(0,0,0,0.2);
- padding:20px;
- overflow-y:auto;
- transition:.3s;
- z-index:1000;
-}
-
-.menu-lateral.activo{
- left:0;
-}
-
-/* ===== CARRITO ===== */
-
-.carrito{
- position:fixed;
- right:-340px;
- top:0;
- width:300px;
- height:100%;
- background:white;
- box-shadow:-5px 0 15px rgba(0,0,0,0.2);
- padding:20px;
- transition:.3s;
- z-index:1000;
-}
-
-.carrito.activo{
- right:0;
-}
-
-/* ===== PRODUCTOS ===== */
-
-.productos{
- display:flex;
- gap:15px;
- flex-wrap:wrap;
-}
-
-.card{
- background:white;
- padding:10px;
- border-radius:10px;
- box-shadow:0 0 10px rgba(0,0,0,0.1);
- text-align:center;
- width:200px;
-}
-
-.card img{
- width:100%;
- border-radius:10px;
-}
-
-.precio{
- font-weight:bold;
- color:#8b1e3f;
-}
-
-.boton{
- background:#8b1e3f;
- color:white;
- border:none;
- padding:8px;
- border-radius:8px;
- cursor:pointer;
- margin-top:5px;
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- BOTONES -->
+<!-- BOTONES FLOTANTES -->
 <button class="btn-menu" onclick="toggleMenu()">☰</button>
 <button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
 
-<!-- ===== MENU LATERAL (PRODUCTOS) ===== -->
+<!-- ===== HERO / BANNER PRINCIPAL ===== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <!-- Logo -->
+    <img src="logo.png" alt="The Cherry Club Logo" class="hero-logo">
+
+    <!-- Nombre marca -->
+    <h1 class="hero-title">The Cherry Club 🍒</h1>
+
+    <!-- Frase -->
+    <p class="hero-slogan">Where girly meets cherry</p>
+
+    <!-- Buscador -->
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Buscar productos...">
+      <button onclick="buscarProducto()">Buscar</button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== MENU LATERAL ===== -->
 
 <div class="menu-lateral" id="menu">
 
@@ -154,70 +78,6 @@ Agregar 🛒
 </div>
 </details>
 
-<details><summary>Corrector</summary></details>
-<details><summary>Polvo Compacto</summary></details>
-<details><summary>Polvo Translúcido</summary></details>
-<details><summary>Iluminador</summary></details>
-<details><summary>Rubor</summary></details>
-<details><summary>Contorno</summary></details>
-<details><summary>Labios</summary></details>
-<details><summary>Delineador de Ojos</summary></details>
-<details><summary>Sombras</summary></details>
-<details><summary>Máscara de Pestañas</summary></details>
-<details><summary>Cejas</summary></details>
-<details><summary>Brochas - Esponjas</summary></details>
-
-</details>
-
-<!-- SKINCARE -->
-<details>
-<summary><strong>🧴 Skincare</strong></summary>
-<details><summary>Serum</summary></details>
-<details><summary>Fijador</summary></details>
-<details><summary>Primer</summary></details>
-<details><summary>Limpiador Facial</summary></details>
-<details><summary>Mascarillas</summary></details>
-</details>
-
-<!-- ACCESORIOS -->
-<details>
-<summary><strong>💎 Accesorios</strong></summary>
-<details><summary>Vinchas de Skincare</summary></details>
-<details><summary>Broches de Pelo</summary></details>
-<details><summary>Colitas de Pelo</summary></details>
-<details><summary>Guantes Exfoliantes</summary></details>
-<details><summary>Arqueadores de Pestañas</summary></details>
-<details><summary>Repuesto Arqueador de Pestañas</summary></details>
-<details><summary>Perfiladores</summary></details>
-<details><summary>Rodillo de Jade</summary></details>
-<details><summary>Piedra Guasha</summary></details>
-<details><summary>Pinza de Depilar</summary></details>
-<details><summary>Cepillo Masajeador de Cuero Cabelludo "DUCHA"</summary></details>
-<details><summary>Set de Botellas para Viaje</summary></details>
-<details><summary>Agujas para Puntos Negros</summary></details>
-<details><summary>Espejo + Cepillo para Cartera</summary></details>
-<details><summary>Perfumeros</summary></details>
-<details><summary>Limas de Uñas</summary></details>
-</details>
-
-<!-- PORTACOSMETICOS -->
-<details>
-<summary><strong>🎀 Portacosméticos</strong></summary>
-</details>
-
-<!-- PESTAÑAS -->
-<details>
-<summary><strong>👁️ Pestañas</strong></summary>
-<details><summary>Pegamento de Pestañas</summary></details>
-<details><summary>Pestañas Postizas</summary></details>
-</details>
-
-<!-- ELECTRONICOS -->
-<details>
-<summary><strong>⚡ Electrónicos</strong></summary>
-<details><summary>Espejos LED</summary></details>
-<details><summary>Limpiadores Faciales</summary></details>
-<details><summary>Depilador Facial</summary></details>
 </details>
 
 </div>
@@ -228,34 +88,12 @@ Agregar 🛒
 <h3>🛒 Tu carrito</h3>
 <ul id="lista-carrito"></ul>
 <p>Total: $<span id="total">0</span></p>
+
+<button class="boton whatsapp" onclick="finalizarCompra()">Finalizar por WhatsApp</button>
 </div>
 
-<script>
-
-let total = 0;
-
-function agregarAlCarrito(nombre,precio,idCantidad){
- let cantidad = parseInt(document.getElementById(idCantidad).value);
- let lista = document.getElementById("lista-carrito");
-
- let item = document.createElement("li");
- item.textContent = `${nombre} x${cantidad} - $${precio*cantidad}`;
-
- lista.appendChild(item);
-
- total += precio*cantidad;
- document.getElementById("total").textContent = total;
-}
-
-function toggleMenu(){
- document.getElementById("menu").classList.toggle("activo");
-}
-
-function toggleCarrito(){
- document.querySelector(".carrito").classList.toggle("activo");
-}
-
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
