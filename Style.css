@@ -90,17 +90,17 @@ background: rgba(255,255,255,0.85);
 /* ================= CUERPO ================= */
 .cuerpo{
   min-height: 100vh;
-  background-image: url("fondo.jpg");
+  background-image: url("fondo-mobile.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 
-/* móvil */
-@media(max-width:768px){
+/* PC */
+@media(min-width:1024px){
   .cuerpo{
-    background-size: contain;
-    background-position: top center;
+    background-image: url("fondo-desktop.jpg");
+    background-size: cover;
   }
 }
 /* ================= FILTROS ================= */
