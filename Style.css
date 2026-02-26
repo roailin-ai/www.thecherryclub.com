@@ -91,11 +91,12 @@ background: rgba(255,255,255,0.85);
 .cuerpo{
   min-height: 100vh;
   background-image: url("fondo.jpg");
-  background-size: contain;       /* importante */
-  background-position: center top;
   background-repeat: no-repeat;
-  padding: 60px 15px;
+  background-position: center;
+  background-size: cover;
 }
+
+/* móvil */
 @media(max-width:768px){
   .cuerpo{
     background-size: contain;
