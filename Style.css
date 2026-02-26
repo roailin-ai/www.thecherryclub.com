@@ -189,7 +189,7 @@ body{
 .menu-lateral.activo{
   left: 0;
 }
-.cerrar-categorias{
+.cerrar-menu{
   position: absolute;
   top: 12px;
   right: 12px;   /* lado del cuerpo de la página */
@@ -201,7 +201,7 @@ body{
   user-select: none;
   z-index: 3000;
 }
-.cerrar-categorias:hover{
+.cerrar-menu:hover{
   color: #000;
   transform: rotate(90deg);
 }
