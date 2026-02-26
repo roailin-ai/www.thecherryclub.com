@@ -186,7 +186,9 @@ body{
   transition: .3s;
   z-index: 2000;
 }
-
+.menu-lateral.activo{
+  left: 0;
+}
 /* ================= PRODUCTOS ================= */
 .productos{
   display:flex;
