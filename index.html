@@ -12,20 +12,21 @@
 
 <body>
 
-<!-- BOTONES FLOTANTES -->
-<button class="btn-menu" onclick="toggleMenu()">☰</button>
-<button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
-
 <!-- ================= HERO / CABECERA ================= -->
 <header class="cabecera">
 
   <!-- IMAGEN DE ENCABEZADO COMPLETA -->
  <img src="header.jpg" alt="Encabezado Cherry Club" class="header-img">
-
+  
+ <div class="barra-superior">
+    <button class="btn-menu" onclick="toggleMenu()">☰</button>
   <!-- BUSCADOR DE PRODUCTOS -->
   <div class="buscador-header">
     <input type="text" id="buscador" placeholder="Buscar productos...">
     <span class="icono-lupa">🔍</span>
+  </div>
+
+    <button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
   </div>
 
 </header>
