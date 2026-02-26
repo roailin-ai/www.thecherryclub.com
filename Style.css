@@ -189,6 +189,21 @@ body{
 .menu-lateral.activo{
   left: 0;
 }
+.cerrar-categorias{
+  position: absolute;
+  top: 12px;
+  right: 12px;   /* lado página */
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+  transition: .2s;
+  user-select: none;
+}
+
+.cerrar-categorias:hover{
+  color: #000;
+  transform: rotate(90deg);
+}
 /* ================= OVERLAY ================= */
 .overlay{
   position: fixed;
