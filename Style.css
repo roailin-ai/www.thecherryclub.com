@@ -190,6 +190,10 @@ body{
 .menu-lateral.activo{
   left:0;
 }
+.icono-menu{
+  position:relative;
+  z-index:1200;
+}
 
 /* ================= PRODUCTOS ================= */
 .productos{
