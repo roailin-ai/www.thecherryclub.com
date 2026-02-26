@@ -344,10 +344,11 @@ body{
   transform: scale(1.1);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
-header img{
+.banner-img{
   width:100%;
-position:relative;
-  z-index:10;
+  height:180px;
+  object-fit:cover;
+  display:block;
 }
 
 /* ================= BARRA SUPERIOR ================= */
