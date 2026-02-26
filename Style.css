@@ -258,6 +258,10 @@ body{
   transition:.3s;
   z-index:1100;
 }
+.cerrar-carrito:hover{
+  color: var(--borgona);
+  transform: scale(1.2);
+}
 
 .carrito.activo{
   right:0;
