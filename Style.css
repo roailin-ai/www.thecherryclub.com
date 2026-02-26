@@ -346,7 +346,7 @@ body{
 /* ================= HEADER IMAGEN COMPLETA ================= */
 .header-img{
   width:100%;
-  height:80px;        /* tamaño real del header */
+  height:180px;        /* tamaño real del header */
   object-fit:cover;    /* recorta sin deformar */
   display:block;
 }
