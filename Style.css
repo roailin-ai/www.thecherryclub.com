@@ -76,28 +76,6 @@ body{
   margin-bottom:15px;
 }
 
-/* ================= BUSCADOR ================= */
-.hero-search{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.hero-search input{
-  padding:10px 15px;
-  width:250px;
-  border-radius:20px;
-  border:1px solid #ddd;
-  outline:none;
-}
-
-.icono-lupa{
-  margin-left:-35px;
-  color:black;
-  cursor:pointer;
-}
-
 /* ================= CUERPO ================= */
 .cuerpo{
   background:white;
@@ -425,4 +403,12 @@ body{
 .buscador-header .icono-lupa{
   margin-left: -40px;
   cursor: pointer;
+}
+.buscador-header{
+  flex: 1 !important;
+  max-width: none !important;
+}
+
+.buscador-header input{
+  width: 100% !important;
 }
