@@ -20,7 +20,7 @@
 body{
   background-image: 
     linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
-    url("fondo.jpg.jpg");
+    url("fondo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
