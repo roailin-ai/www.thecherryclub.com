@@ -24,8 +24,6 @@ body{
 
 /* ================= BOTONES FLOTANTES ================= */
 .btn-menu, .btn-carrito{
-  position:fixed;
-  top:15px;
   background:var(--borgona);
   color:white;
   border:none;
@@ -34,7 +32,6 @@ body{
   height:45px;
   font-size:20px;
   cursor:pointer;
-  z-index:1200;
   transition:.3s;
 }
 
@@ -43,8 +40,6 @@ body{
   background:var(--borgona-soft);
 }
 
-.btn-menu{ left:15px; }
-.btn-carrito{ right:15px; }
 
 /* ================= CABECERA ================= */
 .cabecera{
@@ -382,6 +377,19 @@ body{
   display: block;
 }
 
+/* ================= BARRA SUPERIOR HEADER ================= */
+
+.cabecera{
+  position: relative;
+}
+
+.barra-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 20px;
+  background:white;
+}
 /* ================= BUSCADOR BAJO HEADER ================= */
 
 .buscador-header{
