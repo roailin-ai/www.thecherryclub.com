@@ -91,10 +91,16 @@ background: rgba(255,255,255,0.85);
 .cuerpo{
   min-height: 100vh;
   background-image: url("fondo.jpg");
-  background-size: cover;       /* importante */
-  background-position: center center;
+  background-size: contain;       /* importante */
+  background-position: center top;
   background-repeat: no-repeat;
   padding: 60px 15px;
+}
+@media(max-width:768px){
+  .cuerpo{
+    background-size: contain;
+    background-position: top center;
+  }
 }
 /* ================= FILTROS ================= */
 .filtros{
