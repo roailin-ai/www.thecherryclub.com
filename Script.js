@@ -77,24 +77,30 @@ function finalizarCompra(){
 }
 
 // ===============================
-// 📂 MENÚ LATERAL
+// 📂 MENÚ LATERAL Y CARRITO
 // ===============================
 function toggleMenu(){
   const menu = document.getElementById("menu");
   const carrito = document.querySelector(".carrito");
 
-  menu.classList.toggle("activo");
-  carrito.classList.remove("activo"); // cierra carrito si está abierto
+  if(menu.classList.contains("activo")){
+    menu.classList.remove("activo"); // lo cierra
+  } else {
+    menu.classList.add("activo");    // lo abre
+    carrito.classList.remove("activo"); // cierra carrito
+  }
 }
-// ===============================
-// 🛍️ CARRITO LATERAL
-// ===============================
+
 function toggleCarrito(){
   const carrito = document.querySelector(".carrito");
   const menu = document.getElementById("menu");
 
-  carrito.classList.toggle("activo");
-  menu.classList.remove("activo"); // cierra menú si está abierto
+  if(carrito.classList.contains("activo")){
+    carrito.classList.remove("activo"); // lo cierra
+  } else {
+    carrito.classList.add("activo");    // lo abre
+    menu.classList.remove("activo");    // cierra menú
+  }
 }
 // ===============================
 // 🔍 BUSCADOR DE PRODUCTOS
