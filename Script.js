@@ -80,16 +80,22 @@ function finalizarCompra(){
 // 📂 MENÚ LATERAL
 // ===============================
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("activo");
-}
+  const menu = document.getElementById("menu");
+  const carrito = document.querySelector(".carrito");
 
+  menu.classList.toggle("activo");
+  carrito.classList.remove("activo"); // cierra carrito si está abierto
+}
 // ===============================
 // 🛍️ CARRITO LATERAL
 // ===============================
 function toggleCarrito(){
-  document.querySelector(".carrito").classList.toggle("activo");
-}
+  const carrito = document.querySelector(".carrito");
+  const menu = document.getElementById("menu");
 
+  carrito.classList.toggle("activo");
+  menu.classList.remove("activo"); // cierra menú si está abierto
+}
 // ===============================
 // 🔍 BUSCADOR DE PRODUCTOS
 // ===============================
