@@ -374,3 +374,33 @@ body{
 .instagram-float:hover{
   transform: scale(1.1);
 }
+/* ================= HEADER IMAGEN COMPLETA ================= */
+
+.header-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================= BUSCADOR BAJO HEADER ================= */
+
+.buscador-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: white;
+}
+
+.buscador-header input{
+  padding: 12px 18px;
+  width: 260px;
+  border-radius: 30px;
+  border: 2px solid var(--borgona);
+  outline: none;
+}
+
+.buscador-header .icono-lupa{
+  margin-left: -40px;
+  cursor: pointer;
+}
