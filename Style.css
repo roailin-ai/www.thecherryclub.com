@@ -184,7 +184,7 @@ body{
   padding:20px;
   overflow-y:auto;
   transition:.3s;
-  z-index:1100;
+  z-index:2000;
 }
 
 .menu-lateral.activo{
@@ -355,13 +355,17 @@ body{
   transform: scale(1.1);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
-
-.header-img{
-  width: 100%;
-  height: auto;
-  display: block;
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:3000;
 }
-
+/* ================= AJUSTE CONTENIDO ================= */
+body{
+  padding-top:180px; /* ajustá este valor */
+}
 /* ================= BARRA SUPERIOR ================= */
 .barra-superior{
   display: flex;
