@@ -355,49 +355,48 @@ body{
   display: block;
 }
 
-/* ================= BARRA SUPERIOR HEADER ================= */
-
-.cabecera{
-  position: relative;
-}
+/* ================= BARRA SUPERIOR ================= */
 
 .barra-superior{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
   padding: 15px 20px;
-  background: white;
+  background: var(--gris);
 }
-/* ================= BUSCADOR BAJO HEADER ================= */
+
+/* BOTONES */
+.btn-menu,
+.btn-carrito{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--borgona);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* BUSCADOR */
 .buscador-header{
-  display: flex;
-  align-items: center;
   flex: 1;
-  max-width: 500px;
+  position: relative;
 }
 
 .buscador-header input{
   width: 100%;
-  padding: 12px 18px;
+  padding: 12px 45px 12px 20px;
   border-radius: 30px;
   border: 2px solid var(--borgona);
   outline: none;
 }
 
-.btn-menu,
-.btn-carrito{
-  flex-shrink: 0;
-}
-
-.buscador-header .icono-lupa{
-  margin-left: -40px;
-  cursor: pointer;
-}
-.buscador-header{
-  flex: 1 !important;
-  max-width: none !important;
-}
-
-.buscador-header input{
-  width: 100% !important;
+.icono-lupa{
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
