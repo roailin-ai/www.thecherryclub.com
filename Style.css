@@ -60,9 +60,9 @@ body{
 
 /* Hero */
 .hero{
-  padding:30px 15px;
-  text-align:center;
-  background:transparent;
+background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  margin: 20px;
 }
 
 .hero-logo{
@@ -109,7 +109,7 @@ body{
   padding:8px 15px;
   border-radius:20px;
   border:1px solid var(--borgona);
-  background:white;
+  background:rgba(255,255,255,0.85);
   color:var(--borgona);
   cursor:pointer;
   transition:.3s;
@@ -236,7 +236,8 @@ body{
 }
 
 .card{
-  background:white;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
   padding:10px;
   border-radius:15px;
   box-shadow:0 0 10px rgba(0,0,0,0.08);
