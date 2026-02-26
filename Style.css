@@ -344,10 +344,11 @@ body{
   transform: scale(1.1);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
-header{
+header img{
   width:100%;
-  position:relative; /* o directamente borrá position si no lo necesitás */
-  z-index:10;
+  height:auto;
+  max-height:180px; /* ajustá este valor */
+  object-fit:cover;
 }
 
 /* ================= BARRA SUPERIOR ================= */
