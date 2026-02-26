@@ -361,25 +361,14 @@ body{
   position: relative;
 }
 
-.barra-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 20px;
-  background:white;
-}
-/* ================= BUSCADOR BAJO HEADER ================= */
-/* ================= BARRA HEADER ALINEADA ================= */
-
-.barra-header{
+.barra-superior{
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 15px;
   padding: 15px 20px;
   background: white;
 }
-
+/* ================= BUSCADOR BAJO HEADER ================= */
 .buscador-header{
   display: flex;
   align-items: center;
