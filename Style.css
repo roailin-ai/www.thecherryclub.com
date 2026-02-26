@@ -43,7 +43,7 @@ body{
 /* ================= CABECERA ================= */
 .cabecera{
   width:100%;
-  background:white;
+  background:transparent;
 }
 
 /* Banner */
@@ -57,7 +57,7 @@ body{
 .hero{
   padding:30px 15px;
   text-align:center;
-  background:white;
+  background:transparent;
 }
 
 .hero-logo{
@@ -80,10 +80,10 @@ body{
   background-image: 
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
     url("fondo.jpg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 30px 15px;
+  padding: 60px 15px;
 }
 /* ================= FILTROS ================= */
 .filtros{
