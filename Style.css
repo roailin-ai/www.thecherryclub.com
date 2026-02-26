@@ -174,21 +174,17 @@ body{
 
 /* ================= MENU LATERAL ================= */
 .menu-lateral{
-  position:fixed;
-  top:0;
-  left:-320px;
-  width:300px;
-  height:100vh;   /* importante */
-  background:white;
-  box-shadow:5px 0 15px rgba(0,0,0,0.2);
-  padding:20px;
-  overflow-y:auto;
-  transition:0.3s;
-  z-index:2000;
-}
-
-.menu-lateral.activo{
-  left:0;
+  position: fixed;
+  left: -320px;
+  top: 0;
+  width: 300px;
+  height: 100vh; /* cambiamos 100% por 100vh */
+  background: white;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: .3s;
+  z-index: 2000;
 }
 
 /* ================= PRODUCTOS ================= */
