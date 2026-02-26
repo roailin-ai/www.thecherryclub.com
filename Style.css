@@ -347,7 +347,7 @@ body{
 .header-img{
   width:100%;
   height:auto;        /* tamaño real del header */
-  object-fit:cover;    /* recorta sin deformar */
+  object-fit:contain;    /* recorta sin deformar */
   display:block;
 }
 /* ================= BARRA SUPERIOR ================= */
