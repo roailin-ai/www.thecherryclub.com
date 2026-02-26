@@ -82,25 +82,37 @@ function finalizarCompra(){
 function toggleMenu(){
   const menu = document.getElementById("menu");
   const carrito = document.querySelector(".carrito");
+  const overlay = document.getElementById("overlay");
 
   if(menu.classList.contains("activo")){
-    menu.classList.remove("activo"); // lo cierra
+    menu.classList.remove("activo");
+    overlay.style.display = "none";
   } else {
-    menu.classList.add("activo");    // lo abre
-    carrito.classList.remove("activo"); // cierra carrito
+    menu.classList.add("activo");
+    carrito.classList.remove("activo");
+    overlay.style.display = "block";
   }
 }
 
 function toggleCarrito(){
   const carrito = document.querySelector(".carrito");
   const menu = document.getElementById("menu");
+  const overlay = document.getElementById("overlay");
 
   if(carrito.classList.contains("activo")){
-    carrito.classList.remove("activo"); // lo cierra
+    carrito.classList.remove("activo");
+    overlay.style.display = "none";
   } else {
-    carrito.classList.add("activo");    // lo abre
-    menu.classList.remove("activo");    // cierra menú
+    carrito.classList.add("activo");
+    menu.classList.remove("activo");
+    overlay.style.display = "block";
   }
+}
+
+function cerrarTodo(){
+  document.getElementById("menu").classList.remove("activo");
+  document.querySelector(".carrito").classList.remove("activo");
+  document.getElementById("overlay").style.display = "none";
 }
 // ===============================
 // 🔍 BUSCADOR DE PRODUCTOS
