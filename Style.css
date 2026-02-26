@@ -347,7 +347,7 @@ body{
 header img{
   width:100%;
   height:auto;
-  max-height:180px; /* ajustá este valor */
+  max-height:100px; /* ajustá este valor */
   object-fit:cover;
 }
 
