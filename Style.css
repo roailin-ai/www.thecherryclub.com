@@ -349,11 +349,9 @@ body{
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
 header{
-  position:fixed;
-  top:0;
-  left:0;
   width:100%;
-  z-index:3000;
+  position:relative; /* o directamente borrá position si no lo necesitás */
+  z-index:10;
 }
 
 /* ================= BARRA SUPERIOR ================= */
