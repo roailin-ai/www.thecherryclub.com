@@ -272,7 +272,7 @@ body{
   box-shadow:-5px 0 15px rgba(0,0,0,0.2);
   padding:20px;
   transition:.3s;
-  z-index:1100;
+  z-index:3000;
 }
 .cerrar-carrito:hover{
   color: var(--borgona);
