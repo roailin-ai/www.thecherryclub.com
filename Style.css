@@ -192,14 +192,15 @@ body{
 .cerrar-categorias{
   position: absolute;
   top: 12px;
-  right: 12px;   /* lado página */
-  font-size: 20px;
+  right: 12px;   /* lado del cuerpo de la página */
+  left: auto;    /* 💥 anula cualquier left anterior */
+  font-size: 22px;
   cursor: pointer;
   color: #888;
   transition: .2s;
   user-select: none;
+  z-index: 3000;
 }
-
 .cerrar-categorias:hover{
   color: #000;
   transform: rotate(90deg);
