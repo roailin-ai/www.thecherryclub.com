@@ -131,7 +131,7 @@ function buscarProducto(){
   });
 }
 let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
+const slides = document.querySelectorAll('.promo-slide');
 const track = document.getElementById('sliderTrack');
 
 function updateSlider(){
