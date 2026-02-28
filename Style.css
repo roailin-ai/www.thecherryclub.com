@@ -483,3 +483,64 @@ main{
   top: 50%;
   transform: translateY(-50%);
 }
+/* ===== BANNER FIJO ===== */
+.banner-flotante{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:20px 0 30px 0;
+  z-index:5;
+}
+
+.banner-img{
+  width:92%;
+  max-width:1200px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ===== SLIDER ===== */
+.slider-flotante{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:40px;
+}
+
+.slider-track{
+  display:flex;
+  transition:transform 0.6s ease;
+  width:100%;
+}
+
+.slide{
+  min-width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.slide img{
+  width:92%;
+  max-width:1200px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* botones */
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.8);
+  border:none;
+  font-size:30px;
+  padding:8px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:10;
+}
+
+.slider-btn.prev{ left:15px; }
+.slider-btn.next{ right:15px; }
