@@ -389,47 +389,40 @@ background: rgba(255,255,255,0.85);
   transform: scale(1.1);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
-.header-img{
-  width: 100%;
-  height: 420px;        /* altura real del banner */
-  object-fit: cover;   /* recorta sin deformar */
-  display: block;
-}
-/* ===== HEADER BASE ===== */
-header{
-  width: 100%;
-  position: relative;
-}
 
-.header-img{
-  width: 100%;
-  height: 55vh;          /* ocupa 55% de la pantalla */
-  min-height: 360px;     /* nunca más chico que esto */
-  object-fit: cover;
-  display: block;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width: 600px){
-  .header-img{
-    height: 42vh;        /* 🔥 más protagonismo visual */
-    min-height: 260px;   /* 🔥 header grande en móvil */
-    object-position: center top;
-  }
-}
 header{
   position: sticky;
   top: 0;
   z-index: 999;
-  background: #6d1730; /* color base por si carga lento */
-}
-main{
-  padding-top: 55vh;
+  background: #6d1730;
 }
 
-@media(max-width: 600px){
+/* Banner base */
+.header-img{
+  width: 100%;
+  height: 50vh;         /* desktop */
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile real */
+@media(max-width:600px){
+  .header-img{
+    height: 38vh;       /* 🔥 tamaño correcto móvil */
+    min-height: 240px;  /* 🔥 proporción real */
+    object-position: center top;
+  }
+}
+
+/* Espacio del contenido */
+main{
+  padding-top: 50vh;
+}
+
+@media(max-width:600px){
   main{
-    padding-top: 45vh;
+    padding-top: 38vh;
   }
 }
 /* ================= BARRA SUPERIOR ================= */
