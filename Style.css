@@ -484,14 +484,6 @@ main{
   transform: translateY(-50%);
 }
 /* ===== BANNER FIJO ===== */
-.banner-flotante{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:20px 0 30px 0;
-  z-index:5;
-}
-
 .banner-img{
   width:92%;
   max-width:1200px;
@@ -515,11 +507,12 @@ main{
   width:100%;
 }
 
-.slide{
-  min-width:100%;
-  display:flex;
-  justify-content:center;
-}
+<!-- REGALOS -->
+<div class="slider-regalos" id="sliderRegalos">
+  <img src="img/regalos/regalo1.jpg" class="slide">
+  <img src="img/regalos/regalo2.jpg" class="slide">
+  <img src="img/regalos/regalo3.jpg" class="slide">
+</div>
 
 .slide img{
   width:92%;
