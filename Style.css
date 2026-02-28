@@ -390,10 +390,16 @@ background: rgba(255,255,255,0.85);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
 .header-img{
-  width:100%;
-  height:auto;        /* tamaño real del header */
-  object-fit:contain;    /* recorta sin deformar */
-  display:block;
+  width: 100%;
+  height: 420px;        /* altura real del banner */
+  object-fit: cover;   /* recorta sin deformar */
+  display: block;
+}
+.header-img{
+  width: 100%;
+  height: 420px;        /* altura real del banner */
+  object-fit: cover;   /* recorta sin deformar */
+  display: block;
 }
 /* ================= BARRA SUPERIOR ================= */
 .barra-superior{
