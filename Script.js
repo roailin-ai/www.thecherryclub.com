@@ -130,7 +130,39 @@ function buscarProducto(){
     }
   });
 }
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const track = document.getElementById('sliderTrack');
 
+function updateSlider(){
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function nextSlide(){
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateSlider();
+}
+
+function prevSlide(){
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateSlider();
+}
+
+/* autoplay */
+setInterval(nextSlide, 4000);
+
+/* swipe mobile */
+let startX = 0;
+
+track.addEventListener('touchstart', e=>{
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', e=>{
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) nextSlide();
+  if(endX - startX > 50) prevSlide();
+});
 // ===============================
 // 🧩 FILTROS POR CATEGORÍA
 // ===============================
