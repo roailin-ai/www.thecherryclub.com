@@ -412,8 +412,9 @@ header{
 /* ===== MOBILE ===== */
 @media(max-width: 600px){
   .header-img{
-    height: 65vh;        /* 🔥 más protagonismo visual */
-    min-height: 420px;   /* 🔥 header grande en móvil */
+    height: 42vh;        /* 🔥 más protagonismo visual */
+    min-height: 260px;   /* 🔥 header grande en móvil */
+    object-position: center top;
   }
 }
 header{
@@ -423,12 +424,12 @@ header{
   background: #6d1730; /* color base por si carga lento */
 }
 main{
-  padding-top: 65vh;
+  padding-top: 55vh;
 }
 
 @media(max-width: 600px){
   main{
-    padding-top: 75vh;
+    padding-top: 45vh;
   }
 }
 /* ================= BARRA SUPERIOR ================= */
