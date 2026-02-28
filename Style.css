@@ -389,6 +389,7 @@ background: rgba(255,255,255,0.85);
   transform: scale(1.1);
 }
 /* ================= HEADER IMAGEN COMPLETA ================= */
+/* ================= HEADER IMAGEN COMPLETA ================= */
 
 header{
   position: sticky;
@@ -400,24 +401,21 @@ header{
 /* Banner base */
 .header-img{
   width: 100%;
-  height: auto;         /* desktop */
-  min-height: 60vh;
-  object-fit: contain;
+  height: auto;        /* 🔥 se adapta a la imagen real */
   display: block;
 }
 
-/* Mobile real */
+/* Mobile */
 @media(max-width:600px){
   .header-img{
     width: 100%;
-    height: auto;
-    max-height: 55vh;   /* 🔥 grande en móvil */
-    object-fit: contain;
+    height: auto;      /* 🔥 sin recorte */
   }
 }
+
 /* Espacio del contenido */
 main{
-  padding-top: 0;
+  padding-top: 0;     /* 🔥 elimina el espacio fantasma */
 }
 
 @media(max-width:600px){
