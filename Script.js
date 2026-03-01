@@ -129,44 +129,7 @@ function buscarProducto(){
       card.style.display = "none";
     }
   });
-}
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const track = document.querySelector('.slider-track');
 
-function updateSlider(){
-  const slideWidth = slides[0].offsetWidth + 20; // 20 = gap
-  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
-
-function nextSlide(){
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlider();
-}
-
-function prevSlide(){
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlider();
-}
-
-/* autoplay */
-if(track && slides.length > 0){
-  setInterval(nextSlide, 4000);
-}
-
-/* swipe mobile */
-if(track){
-  let startX = 0;
-
-  track.addEventListener('touchstart', e=>{
-    startX = e.touches[0].clientX;
-  });
-
-  track.addEventListener('touchend', e=>{
-    let endX = e.changedTouches[0].clientX;
-    if(startX - endX > 50) nextSlide();
-    if(endX - startX > 50) prevSlide();
-  });
 }
 // ===============================
 // 🧩 FILTROS POR CATEGORÍA
@@ -181,24 +144,12 @@ function filtrarCategoria(categoria){
       card.style.display = "none";
     }
   });
-}
+
 
 // ===============================
 // 🎁 SLIDER "ELEGÍ EL REGALO PERFECTO ACÁ"
 // ===============================
-let indexSlide = 0;
 
-function sliderRegalos(){
-  let slidesRegalos = document.querySelectorAll("#sliderRegalos .slide");
-
- slidesRegalos.forEach(slide => slide.classList.remove("activo"));
-
-indexSlide++;
-if(indexSlide > slidesRegalos.length){ indexSlide = 1 }
-
-slidesRegalos[indexSlide - 1].classList.add("activo"); 
-
-setInterval(sliderRegalos, 3000); // cada 3 segundos
 
 // ===============================
 // ✨ ANIMACIONES UI
@@ -209,3 +160,23 @@ function animarBoton(btn){
     btn.classList.remove("animado");
   },300);
 }
+// ===============================
+// 🎞️ SLIDER LIMPIO FUNCIONAL
+// ===============================
+let sliderIndex = 0;
+
+function iniciarSlider(){
+  const slides = document.querySelectorAll('.slider-slide');
+  if(slides.length === 0) return;
+
+  slides.forEach(s => s.classList.remove('activo'));
+  slides[0].classList.add('activo');
+
+  setInterval(()=>{
+    slides.forEach(s => s.classList.remove('activo'));
+    sliderIndex = (sliderIndex + 1) % slides.length;
+    slides[sliderIndex].classList.add('activo');
+  }, 4000);
+}
+
+document.addEventListener("DOMContentLoaded", iniciarSlider);
