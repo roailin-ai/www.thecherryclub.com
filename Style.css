@@ -524,3 +524,49 @@ main{
 
 .slider-btn.prev{ left:15px; }
 .slider-btn.next{ right:15px; }
+/* ================= BANNER ================= */
+.banner-principal{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:30px 0;
+}
+
+.banner-img{
+  width:92%;
+  max-width:1200px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ================= SLIDER ================= */
+.slider-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+.slider{
+  width:92%;
+  max-width:1200px;
+  position:relative;
+  height:320px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.slider-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+
+.slider-slide.activo{
+  opacity:1;
+}
