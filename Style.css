@@ -176,6 +176,8 @@ background: rgba(255,255,255,0.85);
   border-radius:15px;
   animation: slide 12s infinite;
 }
+.slide{ opacity:0; transition:.6s; position:absolute; }
+.slide.activo{ opacity:1; position:relative; }
 
 /* Animación slider */
 @keyframes slide{
