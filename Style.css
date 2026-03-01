@@ -483,13 +483,6 @@ main{
   top: 50%;
   transform: translateY(-50%);
 }
-/* ===== BANNER FIJO ===== */
-.banner-img{
-  width:92%;
-  max-width:1200px;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-}
 
 /* ===== SLIDER ===== */
 .slider-flotante{
@@ -504,16 +497,8 @@ main{
 .slider-track{
   display:flex;
   transition:transform 0.6s ease;
-  width:100%;
+  width: fit-content;
 }
-
-<!-- REGALOS -->
-<div class="slider-regalos" id="sliderRegalos">
-  <img src="img/regalos/regalo1.jpg" class="slide">
-  <img src="img/regalos/regalo2.jpg" class="slide">
-  <img src="img/regalos/regalo3.jpg" class="slide">
-</div>
-
 .slide img{
   width:92%;
   max-width:1200px;
