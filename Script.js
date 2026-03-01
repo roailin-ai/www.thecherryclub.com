@@ -131,11 +131,12 @@ function buscarProducto(){
   });
 }
 let currentIndex = 0;
-const slides = document.querySelectorAll('.promo-slide');
-const track = document.getElementById('sliderTrack');
+const slides = document.querySelectorAll('.slide');
+const track = document.querySelector('.slider-track');
 
 function updateSlider(){
-  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  const slideWidth = slides[0].offsetWidth + 20; // 20 = gap
+  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
 function nextSlide(){
@@ -149,20 +150,24 @@ function prevSlide(){
 }
 
 /* autoplay */
-setInterval(nextSlide, 4000);
+if(track && slides.length > 0){
+  setInterval(nextSlide, 4000);
+}
 
 /* swipe mobile */
-let startX = 0;
+if(track){
+  let startX = 0;
 
-track.addEventListener('touchstart', e=>{
-  startX = e.touches[0].clientX;
-});
+  track.addEventListener('touchstart', e=>{
+    startX = e.touches[0].clientX;
+  });
 
-track.addEventListener('touchend', e=>{
-  let endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50) nextSlide();
-  if(endX - startX > 50) prevSlide();
-});
+  track.addEventListener('touchend', e=>{
+    let endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) nextSlide();
+    if(endX - startX > 50) prevSlide();
+  });
+}
 // ===============================
 // 🧩 FILTROS POR CATEGORÍA
 // ===============================
@@ -184,15 +189,14 @@ function filtrarCategoria(categoria){
 let indexSlide = 0;
 
 function sliderRegalos(){
-  let slides = document.querySelectorAll("#sliderRegalos .slide");
+  let slidesRegalos = document.querySelectorAll("#sliderRegalos .slide");
 
-  slides.forEach(slide => slide.style.display = "none");
+ slidesRegalos.forEach(slide => slide.classList.remove("activo"));
 
-  indexSlide++;
-  if(indexSlide > slides.length){ indexSlide = 1 }
+indexSlide++;
+if(indexSlide > slidesRegalos.length){ indexSlide = 1 }
 
-  slides[indexSlide - 1].style.display = "block";
-}
+slidesRegalos[indexSlide - 1].classList.add("activo"); 
 
 setInterval(sliderRegalos, 3000); // cada 3 segundos
 
