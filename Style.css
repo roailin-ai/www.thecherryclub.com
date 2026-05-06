@@ -5,7 +5,10 @@
   box-sizing:border-box;
   font-family: 'Arial', sans-serif;
 }
-
+img{
+  max-width: 100%;
+  height: auto;
+}
 /* ================= COLORES BASE ================= */
 :root{
   --borgona:#8b1e3f;
@@ -50,6 +53,7 @@ body{
   .cabecera{
     min-height: 200px;
   }
+}
 
 /* Hero */
 .hero{
@@ -526,16 +530,4 @@ main{
 
 .slider-btn.prev{ left:15px; }
 .slider-btn.next{ right:15px; }
-/* ================= BANNER ================= */
-.banner-principal{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:30px 0;
-}
 
-.promo-slide{
-  min-width:100%;
-  object-fit:cover;
-  border-radius:18px;
-}
