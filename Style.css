@@ -9,6 +9,7 @@ img{
   max-width: 100%;
   height: auto;
 }
+
 /* ================= COLORES BASE ================= */
 :root{
   --borgona:#8b1e3f;
@@ -24,369 +25,8 @@ body{
   background: var(--rosa);
   color: var(--negro);
 }
-/* ================= BOTONES FLOTANTES ================= */
-.btn-menu, .btn-carrito{
-  background:var(--borgona);
-  color:white;
-  border:none;
-  border-radius:50%;
-  width:45px;
-  height:45px;
-  font-size:20px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.btn-menu:hover, .btn-carrito:hover{
-  transform:scale(1.1);
-  background:var(--borgona-soft);
-}
-
 
 /* ================= CABECERA ================= */
-.cabecera{
-  width: 100%;
-  min-height: 280px;
-}
-
-@media(max-width:600px){
-  .cabecera{
-    min-height: 200px;
-  }
-}
-
-/* Hero */
-.hero{
-background: rgba(255,255,255,0.85);
-  border-radius: 20px;
-  margin: 20px;
-}
-
-.hero-logo{
-  width:120px;
-  margin-bottom:10px;
-}
-
-.hero-title{
-  color:var(--borgona);
-  font-size:2rem;
-}
-
-.hero-slogan{
-  color:#555;
-  margin-bottom:15px;
-}
-@media(max-width:600px){
-  .cuerpo{
-    background-size: cover;
-    background-position: center top;
-    padding: 40px 10px;
-  }
-}
-
-/* ================= CUERPO ================= */
-.cuerpo{
-  min-height: 100vh;
-  background-image: url("./fondo.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  padding: 60px 15px;
-}
-/* ================= FILTROS ================= */
-.filtros{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-bottom:25px;
-}
-
-.filtros button{
-  padding:8px 15px;
-  border-radius:20px;
-  border:1px solid var(--borgona);
-  background:rgba(255,255,255,0.85);
-  color:var(--borgona);
-  cursor:pointer;
-  transition:.3s;
-}
-
-.filtros button:hover{
-  background:var(--borgona);
-  color:white;
-}
-
-/* ================= CATÁLOGO ================= */
-.catalogo{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap:20px;
-  margin-bottom:50px;
-}
-
-/* ================= MARCAS ================= */
-.marcas{
-  text-align:center;
-  margin:50px 0;
-}
-
-.frase-marcas{
-  color:#666;
-  margin:10px 0 20px;
-}
-
-.logos-marcas{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.logos-marcas img{
-  width:100px;
-  opacity:.8;
-  transition:.3s;
-}
-
-.logos-marcas img:hover{
-  opacity:1;
-  transform:scale(1.1);
-}
-
-/* ================= REGALOS SLIDER ================= */
-.regalos{
-  text-align:center;
-  margin-top:50px;
-}
-
-.slider-regalos{
-  margin-top:20px;
-  display:flex;
-  overflow:hidden;
-  gap:20px;
-  justify-content:center;
-}
-
-.slider-regalos img{
-  width:200px;
-  border-radius:15px;
-  animation: slide 12s infinite;
-}
-
-/* Animación slider */
-@keyframes slide{
-  0%{ transform:translateX(0); }
-  25%{ transform:translateX(-10px); }
-  50%{ transform:translateX(-20px); }
-  75%{ transform:translateX(-10px); }
-  100%{ transform:translateX(0); }
-}
-
-/* ================= MENU LATERAL ================= */
-.menu-lateral{
-  position: fixed;
-  left: -320px;
-  top: 0;
-  width: 300px;
-  height: 100vh; /* cambiamos 100% por 100vh */
-  background: white;
-  box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-  padding: 20px;
-  overflow-y: auto;
-  transition: .3s;
-  z-index: 2000;
-}
-.menu-lateral.activo{
-  left: 0;
-}
-.cerrar-menu{
-  position: absolute;
-  top: 12px;
-  right: 12px;   /* lado del cuerpo de la página */
-  left: auto;    /* 💥 anula cualquier left anterior */
-  font-size: 22px;
-  cursor: pointer;
-  color: #888;
-  transition: .2s;
-  user-select: none;
-  z-index: 3000;
-}
-.cerrar-menu:hover{
-  color: #000;
-  transform: rotate(90deg);
-}
-/* ================= OVERLAY ================= */
-.overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 1500;
-  display: none;
-}
-/* ================= PRODUCTOS ================= */
-.productos{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.card{
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(2px);
-  padding:10px;
-  border-radius:15px;
-  box-shadow:0 0 10px rgba(0,0,0,0.08);
-  text-align:center;
-  width:180px;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card img{
-  width:100%;
-  border-radius:10px;
-}
-
-.precio{
-  font-weight:bold;
-  color:var(--borgona);
-}
-
-/* ================= BOTONES ================= */
-.boton{
-  background:var(--borgona);
-  color:white;
-  border:none;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-top:5px;
-  transition:.3s;
-}
-
-.boton:hover{
-  background:var(--borgona-soft);
-}
-
-/* ================= CARRITO ================= */
-.carrito{
-  position:fixed;
-  right:-340px;
-  top:0;
-  width:300px;
-  height:100%;
-  background:white;
-  box-shadow:-5px 0 15px rgba(0,0,0,0.2);
-  padding:20px;
-  transition:.3s;
-  z-index:3000;
-}
-.cerrar-carrito:hover{
-  color: var(--borgona);
-  transform: scale(1.2);
-}
-
-.carrito.activo{
-  right:0;
-}
-
-.carrito h3{
-  margin-bottom:15px;
-}
-
-#lista-carrito{
-  list-style:none;
-  margin-bottom:15px;
-}
-
-.whatsapp{
-  background:#25D366;
-  width:100%;
-  margin-top:10px;
-}
-
-.instagram{
-  background:#E1306C;
-  width:100%;
-  display:block;
-  text-align:center;
-  margin-top:10px;
-  text-decoration:none;
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:600px){
-  .banner-img{
-    height:200px;
-  }
-
-  .hero-title{
-    font-size:1.6rem;
-  }
-
-  .slider-regalos img{
-    width:150px;
-  }
-}
-  
-/* ================= BOTONES FLOTANTES REDES ================= */
-/* 🔝 WHATSAPP — ARRIBA */
-.whatsapp-float{
-  position: fixed;
-  right: 20px;
-  bottom: 95px;   /* arriba */
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index: 2000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: .3s;
-}
-
-.whatsapp-float img{
-  width: 32px;
-}
-
-.whatsapp-float:hover{
-  transform: scale(1.1);
-}
-
-/* 🔽 INSTAGRAM — ABAJO */
-.instagram-float{
-  position: fixed;
-  right: 20px;
-  bottom: 20px;  /* abajo */
-  width: 60px;
-  height: 60px;
-  background: #E1306C;
-  border-radius: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index: 2000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: .3s;
-  text-decoration: none;
-}
-
-.instagram-float img{
-  width: 30px;
-}
-
-.instagram-float:hover{
-  transform: scale(1.1);
-}
-/* ================= HEADER IMAGEN COMPLETA ================= */
-
 header{
   position: sticky;
   top: 0;
@@ -394,44 +34,12 @@ header{
   background: #6d1730;
 }
 
-/* Banner base */
 .header-img{
   width: 100%;
-  height: auto;        /* 🔥 se adapta a la imagen real */
+  height: auto;
   display: block;
 }
 
-/* Mobile */
-@media(max-width:600px){
-  .header-img{
-    width: 100%;
-    height: auto;      /* 🔥 sin recorte */
-  }
-}
-
-/* Espacio del contenido */
-main{
-  padding-top: 0;     /* 🔥 elimina el espacio fantasma */
-}
-
-@media(max-width:600px){
-  main{
-    padding-top: 0;
-  }
-}
-  .banner-principal{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:30px 0;
-}
-
-.banner-principal img{
-  width:92%;
-  max-width:1200px;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-}
 /* ================= BARRA SUPERIOR ================= */
 .barra-superior{
   display: flex;
@@ -441,27 +49,7 @@ main{
   background: var(--gris);
 }
 
-/* Hace que el botón izquierdo quede bien alineado */
-.btn-menu{
-  margin-right: 5px;
-}
-
-/* Buscador ocupa todo el centro */
-.buscador-header{
-  flex: 1;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Empuja el carrito bien a la derecha */
-.btn-carrito{
-  margin-left: auto;
-}
-
-/* BOTONES */
-.btn-menu,
-.btn-carrito{
+.btn-menu, .btn-carrito{
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -471,9 +59,29 @@ main{
   font-size: 20px;
   cursor: pointer;
   flex-shrink: 0;
+  transition: .3s;
 }
 
-/* BUSCADOR */
+.btn-menu:hover, .btn-carrito:hover{
+  transform: scale(1.1);
+  background: var(--borgona-soft);
+}
+
+.btn-carrito{
+  margin-left: auto;
+}
+
+.badge-carrito{
+  background: white;
+  color: var(--borgona);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  vertical-align: top;
+  margin-left: -4px;
+}
+
 .buscador-header{
   flex: 1;
   position: relative;
@@ -494,40 +102,385 @@ main{
   transform: translateY(-50%);
 }
 
-/* ===== SLIDER ===== */
+/* ================= BANNER PRINCIPAL ================= */
+.banner-principal{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.banner-principal img{
+  width: 92%;
+  max-width: 1200px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ================= SLIDER PROMOS ================= */
 .slider-flotante{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  margin-bottom:40px;
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
 }
 
 .slider-track{
-  display:flex;
-  transition:transform 0.6s ease;
+  display: flex;
   width: 100%;
 }
-.promo-slide{
-  min-width:100%;
-  object-fit:cover;
-  border-radius:18px;
+
+.slider-slide{
+  display: none;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 18px;
 }
-/* botones */
+
+.slider-slide.activo{
+  display: block;
+}
+
 .slider-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(255,255,255,0.8);
-  border:none;
-  font-size:30px;
-  padding:8px 14px;
-  border-radius:50%;
-  cursor:pointer;
-  z-index:10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 30px;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
 }
 
-.slider-btn.prev{ left:15px; }
-.slider-btn.next{ right:15px; }
+.slider-btn.prev{ left: 15px; }
+.slider-btn.next{ right: 15px; }
 
+/* ================= CUERPO ================= */
+.cuerpo{
+  min-height: 100vh;
+  background-image: url("./fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  padding: 40px 15px;
+}
+
+/* ================= FILTROS ================= */
+.filtros{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.filtros button{
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--borgona);
+  background: rgba(255,255,255,0.85);
+  color: var(--borgona);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filtros button:hover{
+  background: var(--borgona);
+  color: white;
+}
+
+/* ================= CATÁLOGO ================= */
+.catalogo{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.card{
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: .3s;
+}
+
+.card:hover{
+  transform: translateY(-5px);
+}
+
+.card img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.precio{
+  font-weight: bold;
+  color: var(--borgona);
+  margin: 5px 0;
+}
+
+.card-acciones{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-acciones input{
+  width: 45px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* ================= BOTONES ================= */
+.boton{
+  background: var(--borgona);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.boton:hover{
+  background: var(--borgona-soft);
+}
+
+/* ================= MARCAS ================= */
+.marcas{
+  text-align: center;
+  margin: 50px 0;
+}
+
+.frase-marcas{
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.logos-marcas{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logos-marcas img{
+  width: 100px;
+  opacity: .8;
+  transition: .3s;
+}
+
+.logos-marcas img:hover{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ================= REGALOS SLIDER ================= */
+.regalos{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.slider-regalos{
+  margin-top: 20px;
+  display: flex;
+  overflow: hidden;
+  gap: 20px;
+  justify-content: center;
+}
+
+.slider-regalos img{
+  width: 180px;
+  border-radius: 15px;
+}
+
+/* ================= MENU LATERAL ================= */
+.menu-lateral{
+  position: fixed;
+  left: -320px;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: .3s;
+  z-index: 2000;
+}
+
+.menu-lateral.activo{
+  left: 0;
+}
+
+.cerrar-menu{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+  transition: .2s;
+  user-select: none;
+  z-index: 3000;
+}
+
+.cerrar-menu:hover{
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.menu-lateral details{
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.menu-lateral p{
+  padding: 6px 12px;
+  color: #555;
+  font-size: 14px;
+}
+
+.menu-lateral p:hover{
+  color: var(--borgona);
+  font-weight: bold;
+}
+
+/* ================= OVERLAY ================= */
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1500;
+  display: none;
+}
+
+/* ================= CARRITO ================= */
+.carrito{
+  position: fixed;
+  right: -340px;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: .3s;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+}
+
+.carrito.activo{
+  right: 0;
+}
+
+.cerrar-carrito{
+  align-self: flex-end;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.cerrar-carrito:hover{
+  color: var(--borgona);
+  transform: scale(1.2);
+}
+
+#lista-carrito{
+  list-style: none;
+  margin: 15px 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.carrito-total{
+  font-size: 1.1rem;
+  margin: 15px 0;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.whatsapp{
+  background: #25D366;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.btn-vaciar{
+  background: #777;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn-vaciar:hover{
+  background: #555;
+}
+
+/* ================= BOTONES FLOTANTES REDES ================= */
+.whatsapp-float{
+  position: fixed;
+  right: 20px;
+  bottom: 95px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: .3s;
+}
+
+.whatsapp-float img{
+  width: 32px;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.1);
+}
+
+.instagram-float{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  background: #E1306C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: .3s;
+  text-decoration: none;
+}
+
+.instagram-float img{
+  width: 30px;
+}
+
+.instagram-float:hover{
+  transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:600px){
+  .cuerpo{
+    padding: 20px 10px;
+  }
+}
