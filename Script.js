@@ -2,181 +2,183 @@
 // 🍒 THE CHERRY CLUB - SCRIPT.JS
 // ===============================
 
-// ===== VARIABLES GLOBALES =====
 let carrito = [];
 let total = 0;
+let sliderIndex = 0;
 
 // ===============================
 // 🛒 AGREGAR AL CARRITO
 // ===============================
-function agregarAlCarrito(nombre, precio, idCantidad){
-  let cantidad = parseInt(document.getElementById(idCantidad).value);
+function agregarAlCarrito(nombre, precio, idCantidad) {
+  const inputCant = document.getElementById(idCantidad);
+  const cantidad = inputCant ? parseInt(inputCant.value) || 1 : 1;
 
-  carrito.push({
-    nombre: nombre,
-    precio: precio,
-    cantidad: cantidad
+  const itemExistente = carrito.find(p => p.nombre === nombre);
+  if (itemExistente) {
+    itemExistente.cantidad += cantidad;
+  } else {
+    carrito.push({ nombre, precio, cantidad });
+  }
+
+  renderizarCarrito();
+}
+
+// ===============================
+// 🔄 RENDERIZAR CARRITO
+// ===============================
+function renderizarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  lista.innerHTML = "";
+  total = 0;
+
+  carrito.forEach(prod => {
+    const subtotal = prod.precio * prod.cantidad;
+    total += subtotal;
+
+    const li = document.createElement("li");
+    li.style.margin = "8px 0";
+    li.textContent = `• ${prod.nombre} x${prod.cantidad} - $${subtotal}`;
+    lista.appendChild(li);
   });
 
-  let lista = document.getElementById("lista-carrito");
-
-  let item = document.createElement("li");
-  item.textContent = `${nombre} x${cantidad} - $${precio * cantidad}`;
-  lista.appendChild(item);
-
-  total += precio * cantidad;
   document.getElementById("total").textContent = total;
-
   contarProductos();
 }
 
 // ===============================
 // 🧹 VACIAR CARRITO
 // ===============================
-function vaciarCarrito(){
+function vaciarCarrito() {
   carrito = [];
-  total = 0;
-  document.getElementById("lista-carrito").innerHTML = "";
-  document.getElementById("total").textContent = 0;
-
-  let badge = document.getElementById("contador-carrito");
-  if(badge) badge.textContent = 0;
+  renderizarCarrito();
 }
 
 // ===============================
-// 🔢 CONTADOR DE PRODUCTOS
+// 🔢 CONTADOR DE PRODUCTOS (BADGE)
 // ===============================
-function contarProductos(){
-  let contador = carrito.reduce((acc,prod)=> acc + prod.cantidad, 0);
-  let badge = document.getElementById("contador-carrito");
-  if(badge) badge.textContent = contador;
+function contarProductos() {
+  const contador = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+  const badge = document.getElementById("contador-carrito");
+  if (badge) badge.textContent = contador;
 }
 
 // ===============================
 // 📲 WHATSAPP CHECKOUT
 // ===============================
-function finalizarCompra(){
-  if(carrito.length === 0){
+function finalizarCompra() {
+  if (carrito.length === 0) {
     alert("El carrito está vacío 🛒");
     return;
   }
 
-  let mensaje = "Hola! Quiero comprar:%0A%0A";
+  let mensaje = "Hola! Quiero realizar el siguiente pedido:%0A%0A";
 
   carrito.forEach(prod => {
-    mensaje += `• ${prod.nombre} x${prod.cantidad} - $${prod.precio * prod.cantidad}%0A`;
+    mensaje += `• ${prod.nombre} (x${prod.cantidad}) = $${prod.precio * prod.cantidad}%0A`;
   });
 
-  mensaje += `%0A💰 Total: $${total}`;
+  mensaje += `%0A💰 Total a abonar: $${total}`;
 
-  // 📲 TU NÚMERO (solo acá)
-  let telefono = "5492604204573"; 
-
-  let url = `https://wa.me/${telefono}?text=${mensaje}`;
+  const telefono = "5492604204573";
+  const url = `https://wa.me/${telefono}?text=${mensaje}`;
   window.open(url, "_blank");
 }
 
 // ===============================
-// 📂 MENÚ LATERAL Y CARRITO
+// 📂 MENÚ LATERAL Y OVERLAY
 // ===============================
-function toggleMenu(){
+function toggleMenu() {
   const menu = document.getElementById("menu");
-  const carrito = document.querySelector(".carrito");
+  const carritoEl = document.querySelector(".carrito");
   const overlay = document.getElementById("overlay");
 
-  if(menu.classList.contains("activo")){
+  if (menu.classList.contains("activo")) {
     menu.classList.remove("activo");
     overlay.style.display = "none";
   } else {
     menu.classList.add("activo");
-    carrito.classList.remove("activo");
+    carritoEl.classList.remove("activo");
     overlay.style.display = "block";
   }
 }
 
-function toggleCarrito(){
-  const carrito = document.querySelector(".carrito");
+function toggleCarrito() {
+  const carritoEl = document.querySelector(".carrito");
   const menu = document.getElementById("menu");
   const overlay = document.getElementById("overlay");
 
-  if(carrito.classList.contains("activo")){
-    carrito.classList.remove("activo");
+  if (carritoEl.classList.contains("activo")) {
+    carritoEl.classList.remove("activo");
     overlay.style.display = "none";
   } else {
-    carrito.classList.add("activo");
+    carritoEl.classList.add("activo");
     menu.classList.remove("activo");
     overlay.style.display = "block";
   }
 }
 
-function cerrarTodo(){
-  document.getElementById("menu").classList.remove("activo");
-  document.querySelector(".carrito").classList.remove("activo");
-  document.getElementById("overlay").style.display = "none";
+function cerrarTodo() {
+  const menu = document.getElementById("menu");
+  const carritoEl = document.querySelector(".carrito");
+  const overlay = document.getElementById("overlay");
+
+  if (menu) menu.classList.remove("activo");
+  if (carritoEl) carritoEl.classList.remove("activo");
+  if (overlay) overlay.style.display = "none";
 }
+
 // ===============================
 // 🔍 BUSCADOR DE PRODUCTOS
 // ===============================
-function buscarProducto(){
-  let input = document.getElementById("buscador").value.toLowerCase();
-  let cards = document.querySelectorAll(".card");
+function buscarProducto() {
+  const input = document.getElementById("buscador").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
 
-  cards.forEach(card=>{
-    let nombre = card.querySelector("h4").textContent.toLowerCase();
-    if(nombre.includes(input)){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
-    }
+  cards.forEach(card => {
+    const nombre = card.querySelector("h4").textContent.toLowerCase();
+    card.style.display = nombre.includes(input) ? "block" : "none";
   });
-
 }
+
 // ===============================
 // 🧩 FILTROS POR CATEGORÍA
 // ===============================
-function filtrarCategoria(categoria){
-  let cards = document.querySelectorAll(".card");
+function filtrarCategoria(categoria) {
+  const cards = document.querySelectorAll(".card");
 
-  cards.forEach(card=>{
-    if(card.classList.contains(categoria)){
+  cards.forEach(card => {
+    if (categoria === "todas" || card.classList.contains(categoria)) {
       card.style.display = "block";
-    }else{
+    } else {
       card.style.display = "none";
     }
   });
-
-
-// ===============================
-// 🎁 SLIDER "ELEGÍ EL REGALO PERFECTO ACÁ"
-// ===============================
-
-
-// ===============================
-// ✨ ANIMACIONES UI
-// ===============================
-function animarBoton(btn){
-  btn.classList.add("animado");
-  setTimeout(()=>{
-    btn.classList.remove("animado");
-  },300);
 }
-// ===============================
-// 🎞️ SLIDER LIMPIO FUNCIONAL
-// ===============================
-let sliderIndex = 0;
 
-function iniciarSlider(){
+// ===============================
+// 🎞️ SLIDER DE IMÁGENES
+// ===============================
+function mostrarSlide(indice) {
   const slides = document.querySelectorAll('.slider-slide');
-  if(slides.length === 0) return;
+  if (slides.length === 0) return;
 
   slides.forEach(s => s.classList.remove('activo'));
-  slides[0].classList.add('activo');
-
-  setInterval(()=>{
-    slides.forEach(s => s.classList.remove('activo'));
-    sliderIndex = (sliderIndex + 1) % slides.length;
-    slides[sliderIndex].classList.add('activo');
-  }, 4000);
+  sliderIndex = (indice + slides.length) % slides.length;
+  slides[sliderIndex].classList.add('activo');
 }
 
-document.addEventListener("DOMContentLoaded", iniciarSlider);
+function nextSlide() {
+  mostrarSlide(sliderIndex + 1);
+}
+
+function prevSlide() {
+  mostrarSlide(sliderIndex - 1);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll('.slider-slide');
+  if (slides.length > 0) {
+    mostrarSlide(0);
+    setInterval(nextSlide, 4500);
+  }
+});
