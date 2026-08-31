@@ -1,231 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Cherry Club</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cherry Club</title>
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css?v=2">
-
+  <!-- Enlace CSS respetando la mayúscula del archivo -->
+  <link rel="stylesheet" href="Style.css?v=3">
 </head>
 
 <body>
-<div id="overlay" class="overlay" onclick="cerrarTodo()"></div>
-<!-- ================= HERO / CABECERA ================= -->
-<header>
+  <div id="overlay" class="overlay" onclick="cerrarTodo()"></div>
 
-  <!-- IMAGEN DE ENCABEZADO COMPLETA -->
- <img src="header.jpg" alt="Encabezado Cherry Club" class="header-img">
-  
- <div class="barra-superior">
-    <button class="btn-menu" onclick="toggleMenu()">☰</button>
-  <!-- BUSCADOR DE PRODUCTOS -->
-  <div class="buscador-header">
-    <input type="text" id="buscador" placeholder="Buscar productos...">
-    <span class="icono-lupa">🔍</span>
-  </div>
+  <!-- ================= HEADER / CABECERA ================= -->
+  <header>
+    <img src="header.jpg" alt="Encabezado Cherry Club" class="header-img">
+    
+    <div class="barra-superior">
+      <button class="btn-menu" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+      
+      <!-- BUSCADOR -->
+      <div class="buscador-header">
+        <input type="text" id="buscador" onkeyup="buscarProducto()" placeholder="Buscar productos...">
+        <span class="icono-lupa">🔍</span>
+      </div>
 
-    <button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
-  </div>
-
-</header>
-<!-- ===== BANNER PRINCIPAL ===== -->
-<section class="banner-principal">
-  <img src="banner1.jpg" class="banner-img">
-</section>
-
-<!-- ===== SLIDER ===== -->
-<section class="slider-container">
-  <div class="slider">
-    <img src="slider1.jpg" class="slider-slide activo">
-    <img src="slider2.jpg" class="slider-slide">
-    <img src="slider3.jpg" class="slider-slide">
-    <img src="slider4.jpg" class="slider-slide">
-  </div>
-</section>
-
-  <!-- botones -->
-  <button class="slider-btn prev" onclick="prevSlide()">‹</button>
-  <button class="slider-btn next" onclick="nextSlide()">›</button>
-</section>
-<!-- ================= CUERPO PRINCIPAL ================= -->
-<main class="cuerpo">
-
-  <!-- ================= VISTA CATÁLOGO ================= -->
-  <section class="catalogo" id="catalogo">
-    <!-- Las cards de productos se renderizan acá -->
-  </section>
-
-  <!-- ================= SECCIÓN MARCAS ================= -->
-  <section class="marcas">
-    <h2>Marcas con las que trabajamos</h2>
-    <p class="frase-marcas">Trabajamos con marcas que aman el beauty tanto como vos 💄</p>
-
-    <div class="logos-marcas">
-      <!-- imágenes desde Canva -->
-      <img src="img/marcas/marca1.png" alt="Marca 1">
-      <img src="img/marcas/marca2.png" alt="Marca 2">
-      <img src="img/marcas/marca3.png" alt="Marca 3">
-      <img src="img/marcas/marca4.png" alt="Marca 4">
+      <button class="btn-carrito" onclick="toggleCarrito()" aria-label="Ver carrito">
+        🛒 <span id="contador-carrito" class="badge-carrito">0</span>
+      </button>
     </div>
+  </header>
+
+  <!-- ===== BANNER PRINCIPAL ===== -->
+  <section class="banner-principal">
+    <img src="banner1.jpg" alt="Banner principal" class="banner-img">
   </section>
 
-  <!-- ================= REGALO PERFECTO ================= -->
-  <section class="regalos">
-    <h2>Elegí el regalo perfecto 🎁</h2>
-
-    <div class="slider-regalos" id="sliderRegalos">
-      <!-- imágenes desde Canva -->
-      <img src="img/regalos/regalo1.jpg" class="slide">
-      <img src="img/regalos/regalo2.jpg" class="slide">
-      <img src="img/regalos/regalo3.jpg" class="slide">
-      <img src="img/regalos/regalo4.jpg" class="slide">
+  <!-- ===== SLIDER PROMOS ===== -->
+  <section class="slider-flotante">
+    <div class="slider-track" id="sliderTrack">
+      <img src="slider1.jpg" class="slider-slide activo promo-slide" alt="Promo 1">
+      <img src="slider2.jpg" class="slider-slide promo-slide" alt="Promo 2">
+      <img src="slider3.jpg" class="slider-slide promo-slide" alt="Promo 3">
+      <img src="slider4.jpg" class="slider-slide promo-slide" alt="Promo 4">
     </div>
+    <button class="slider-btn prev" onclick="prevSlide()">‹</button>
+    <button class="slider-btn next" onclick="nextSlide()">›</button>
   </section>
 
-</main>
+  <!-- ================= CUERPO PRINCIPAL ================= -->
+  <main class="cuerpo">
 
-<!-- ================= MENU LATERAL ================= -->
-<div class="menu-lateral" id="menu">
+    <!-- FILTROS RÁPIDOS -->
+    <div class="filtros">
+      <button onclick="filtrarCategoria('todas')">Todos</button>
+      <button onclick="filtrarCategoria('maquillaje')">💄 Maquillaje</button>
+      <button onclick="filtrarCategoria('skincare')">🧴 Skincare</button>
+      <button onclick="filtrarCategoria('accesorios')">💎 Accesorios</button>
+    </div>
 
-  <span class="cerrar-menu" onclick="toggleMenu()">✖</span>
-
-  <h2>Nuestros Productos</h2>
-
-<!-- ===== MAQUILLAJE ===== -->
-<details>
-  <summary><strong>💄 Maquillaje</strong></summary>
-
-  <details>
-    <summary>Base</summary>
-    <div class="productos">
-
+    <!-- ================= VISTA CATÁLOGO ================= -->
+    <section class="catalogo" id="catalogo">
+      <!-- Tarjeta 1: Base HD -->
       <div class="card maquillaje">
-        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200" alt="Base HD">
         <h4>Base HD</h4>
         <p class="precio">$5500</p>
-        <input type="number" min="1" value="1" id="basehd">
-        <button class="boton" onclick="agregarAlCarrito('Base HD',5500,'basehd')">
-          Agregar 🛒
-        </button>
+        <div class="card-acciones">
+          <input type="number" min="1" value="1" id="cant-basehd">
+          <button class="boton" onclick="agregarAlCarrito('Base HD', 5500, 'cant-basehd')">Agregar 🛒</button>
+        </div>
       </div>
 
+      <!-- Tarjeta 2: Base Matte -->
       <div class="card maquillaje">
-        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200" alt="Base Matte">
         <h4>Base Matte</h4>
         <p class="precio">$5500</p>
-        <input type="number" min="1" value="1" id="basematte">
-        <button class="boton" onclick="agregarAlCarrito('Base Matte',5500,'basematte')">
-          Agregar 🛒
-        </button>
+        <div class="card-acciones">
+          <input type="number" min="1" value="1" id="cant-basematte">
+          <button class="boton" onclick="agregarAlCarrito('Base Matte', 5500, 'cant-basematte')">Agregar 🛒</button>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </details>
+    <!-- ================= SECCIÓN MARCAS ================= -->
+    <section class="marcas">
+      <h2>Marcas con las que trabajamos</h2>
+      <p class="frase-marcas">Trabajamos con marcas que aman el beauty tanto como vos 💄</p>
 
-  <details><summary>Corrector</summary></details>
-  <details><summary>Polvo Compacto</summary></details>
-  <details><summary>Polvo Translúcido</summary></details>
-  <details><summary>Iluminador</summary></details>
-  <details><summary>Rubor</summary></details>
-  <details><summary>Contorno</summary></details>
-  <details><summary>Labios</summary></details>
-  <details><summary>Delineador de Ojos</summary></details>
-  <details><summary>Sombras</summary></details>
-  <details><summary>Máscara de Pestañas</summary></details>
-  <details><summary>Cejas</summary></details>
-  <details><summary>Brochas - Esponjas</summary></details>
-</details>
+      <div class="logos-marcas">
+        <img src="slider1.jpg" alt="Marca 1">
+        <img src="slider2.jpg" alt="Marca 2">
+        <img src="slider3.jpg" alt="Marca 3">
+        <img src="slider4.jpg" alt="Marca 4">
+      </div>
+    </section>
 
-<!-- ===== SKINCARE ===== -->
-<details>
-  <summary><strong>🧴 Skincare</strong></summary>
-<details><summary>Serum</summary></details>
-  <details><summary>Fijador</summary></details>
-  <details><summary>Primer</summary></details>
-  <details><summary>Limpiador Facial</summary></details>
-  <details><summary>Mascarillas</summary></details>
-</details>
+    <!-- ================= REGALO PERFECTO ================= -->
+    <section class="regalos">
+      <h2>Elegí el regalo perfecto 🎁</h2>
+      <div class="slider-regalos" id="sliderRegalos">
+        <img src="slider1.jpg" class="slide" alt="Regalo 1">
+        <img src="slider2.jpg" class="slide" alt="Regalo 2">
+        <img src="slider3.jpg" class="slide" alt="Regalo 3">
+        <img src="slider4.jpg" class="slide" alt="Regalo 4">
+      </div>
+    </section>
+  </main>
 
-<!-- ===== ACCESORIOS ===== -->
-<details>
-  <summary><strong>💎 Accesorios</strong></summary>
-<details><summary>Vinchas de Skincare</summary></details>
-  <details><summary>Broches de Pelo</summary></details>
-  <details><summary>Colitas de Pelo</summary></details>
-  <details><summary>Guantes Exfoliantes</summary></details>
-  <details><summary>Arqueadores de Pestañas</summary></details>
-  <details><summary>Repuesto Arqueador de Pestañas</summary></details>
-  <details><summary>Perfiladores</summary></details>
-  <details><summary>Rodillo de Jade</summary></details>
-  <details><summary>Piedra Guasha</summary></details>
-  <details><summary>Pinza de Depilar</summary></details>
-  <details><summary>Cepillo Masajeador de Cuero Cabelludo "DUCHA"</summary></details>
-  <details><summary>Set de Botellas para Viaje</summary></details>
-  <details><summary>Agujas para Puntos Negros</summary></details>
-  <details><summary>Espejo + Cepillo para Cartera</summary></details>
-  <details><summary>Perfumeros</summary></details>
-  <details><summary>Limas de Uñas</summary></details>
-</details>
+  <!-- ================= MENU LATERAL ================= -->
+  <aside class="menu-lateral" id="menu">
+    <span class="cerrar-menu" onclick="toggleMenu()">✖</span>
+    <h2>Categorías</h2>
 
-<!-- ===== PORTACOSMÉTICOS ===== -->
-<details>
-  <summary><strong>👜 Portacosméticos</strong></summary>
-</details>
+    <details>
+      <summary><strong>💄 Maquillaje</strong></summary>
+      <p onclick="filtrarCategoria('maquillaje'); toggleMenu();">Bases</p>
+      <p onclick="filtrarCategoria('maquillaje'); toggleMenu();">Correctores</p>
+      <p onclick="filtrarCategoria('maquillaje'); toggleMenu();">Labiales</p>
+    </details>
 
-<!-- ===== PESTAÑAS ===== -->
-<details>
-  <summary><strong>👁️ Pestañas</strong></summary>
-<details><summary>Pestañas Postizas</summary></details>
-<details><summary> Pegamento de Pestañas</summary></details>
-  </details>
+    <details>
+      <summary><strong>🧴 Skincare</strong></summary>
+      <p onclick="filtrarCategoria('skincare'); toggleMenu();">Serums</p>
+      <p onclick="filtrarCategoria('skincare'); toggleMenu();">Limpiadores</p>
+    </details>
 
-<!-- ===== ELECTRÓNICOS ===== -->
-<details>
-  <summary><strong>⚡ Electrónicos</strong></summary>
-<details><summary>Espejos LED</summary></details>
-  <details><summary>Limpiadores Faciales</summary></details>
-  <details><summary>Depilador Facial</summary></details>
-</details>
+    <details>
+      <summary><strong>💎 Accesorios</strong></summary>
+      <p onclick="filtrarCategoria('accesorios'); toggleMenu();">Vinchas</p>
+      <p onclick="filtrarCategoria('accesorios'); toggleMenu();">Broches</p>
+    </details>
+  </aside>
 
-</div>
+  <!-- ================= CARRITO ================= -->
+  <aside class="carrito">
+    <span class="cerrar-carrito" onclick="cerrarTodo()">✖</span>
+    <h3>🛒 Tu carrito</h3>
 
-<!-- ================= CARRITO ================= -->
-<div class="carrito">
-  <span class="cerrar-carrito" onclick="cerrarTodo()">✖</span>
-  <h3>🛒 Tu carrito</h3>
+    <ul id="lista-carrito"></ul>
 
-  <ul id="lista-carrito"></ul>
+    <p class="carrito-total">Total: <strong>$<span id="total">0</span></strong></p>
 
-  <p>Total: $<span id="total">0</span></p>
+    <button class="boton whatsapp" onclick="finalizarCompra()">
+      Finalizar por WhatsApp 📲
+    </button>
 
-  <button class="btn-comprar" onclick="finalizarCompra()">
-    Finalizar compra por WhatsApp 📲
-  </button>
-
-  <button class="btn-vaciar" onclick="vaciarCarrito()">
-    Vaciar carrito 🧹
-  </button>
-</div>
-  
+    <button class="boton btn-vaciar" onclick="vaciarCarrito()">
+      Vaciar carrito 🧹
+    </button>
+  </aside>
+    
   <!-- BOTONES FLOTANTES REDES -->
-<!-- WhatsApp (ARRIBA) -->
-<a href="https://wa.me/5492604204573?text=Hola%20quiero%20información"
-   target="_blank"
-   class="whatsapp-float">
-   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-        alt="WhatsApp">
-</a>
+  <a href="https://wa.me/5492604204573?text=Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" class="whatsapp-float" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
 
-<!-- Instagram (ABAJO) -->
-<a href="https://instagram.com/thecherryclub_ar"
-   target="_blank"
-   class="instagram-float">
-   <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-        alt="Instagram">
-  
-</a>
-<script src="Script.js"></script>
+  <a href="https://instagram.com/thecherryclub_ar" target="_blank" class="instagram-float" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+
+  <script src="Script.js"></script>
 </body>
-</html
+</html>
