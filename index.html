@@ -67,7 +67,6 @@
 
   </main>
 
-  <!-- ================= MENU LATERAL (Acá van tus productos) ================= -->
   <!-- ================= MENU LATERAL ================= -->
   <aside class="menu-lateral" id="menu">
     <span class="cerrar-menu" onclick="toggleMenu()">✖</span>
@@ -75,73 +74,39 @@
 
     <!-- ===== MAQUILLAJE ===== -->
     <details>
-      <summary><strong>💄 Maquillaje</strong></summary>
-      
-      <details>
-        <summary style="margin-top: 10px; color: #555; cursor: pointer;">Base</summary>
-        <div class="productos" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px; align-items: center;">
-          
-          <div class="card maquillaje">
-            <img src="https://via.placeholder.com/200" alt="Base HD">
-            <h4>Base HD</h4>
-            <p class="precio">$5500</p>
-            <div class="card-acciones">
-              <input type="number" min="1" value="1" id="cant-basehd">
-              <button class="boton" onclick="agregarAlCarrito('Base HD', 5500, 'cant-basehd')">Agregar 🛒</button>
-            </div>
-          </div>
-
-          <div class="card maquillaje">
-            <img src="https://via.placeholder.com/200" alt="Base Matte">
-            <h4>Base Matte</h4>
-            <p class="precio">$5500</p>
-            <div class="card-acciones">
-              <input type="number" min="1" value="1" id="cant-basematte">
-              <button class="boton" onclick="agregarAlCarrito('Base Matte', 5500, 'cant-basematte')">Agregar 🛒</button>
-            </div>
-          </div>
-
-        </div>
-      </details>
-      
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Corrector</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Polvo compacto</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Polvo traslúcido</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Iluminador</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Rubor</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Contorno</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Labios</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Delineadores</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Sombras</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Rímel</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cejas</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Brochas</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Esponjas</summary></details>
+      <summary><strong>💄 MAQUILLAJE</strong></summary>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">CORRECTOR</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">POLVO COMPACTO</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">POLVO TRANSLÚCIDO</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">ILUMINADOR</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">RUBOR</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">CONTORNO</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">LABIOS</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">DELINEADORES</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">SOMBRAS</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">RÍMEL</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">CEJAS</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">BROCHAS-ESPONJAS</summary></details>
     </details>
 
     <!-- ===== SKINCARE ===== -->
     <details>
-      <summary><strong>🧴 Skincare</strong></summary>
-      <details><summary style="margin-top: 10px; color: #555; cursor: pointer;">Primer</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Fijador</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cremas para manos</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Mascarillas faciales</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Mascarillas en general</summary></details>
+      <summary><strong>🧴 SKINCARE</strong></summary>
+      <details><summary style="margin-top: 10px; color: #555; cursor: pointer;">PRIMER</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">FIJADOR</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">CREMA DE MANOS</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">MASCARILLAS</summary></details>
     </details>
 
     <!-- ===== MANICURA ===== -->
     <details>
-      <summary><strong>💅 Manicura</strong></summary>
-      <details><summary style="margin-top: 10px; color: #555; cursor: pointer;">Esmaltes</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Uñas postizas</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cortaúñas</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Pegamento para uñas</summary></details>
-      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Limas</summary></details>
+      <summary><strong>💅 MANICURA</strong></summary>
+      
     </details>
     
     <!-- ===== COMPLEMENTOS ===== -->
     <details>
-      <summary><strong>✨ Complementos</strong></summary>
+      <summary><strong>✨ COMPLEMENTOS</strong></summary>
       <!-- Acá vas a poder pegar directamente el contenedor <div class="productos"> con tus tarjetas cuando quieras subir imágenes, sin necesidad de crear subcategorías -->
     </details>
 
