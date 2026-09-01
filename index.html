@@ -68,17 +68,17 @@
   </main>
 
   <!-- ================= MENU LATERAL (Acá van tus productos) ================= -->
+  <!-- ================= MENU LATERAL ================= -->
   <aside class="menu-lateral" id="menu">
     <span class="cerrar-menu" onclick="toggleMenu()">✖</span>
     <h2>Categorías</h2>
 
+    <!-- ===== MAQUILLAJE ===== -->
     <details>
       <summary><strong>💄 Maquillaje</strong></summary>
       
       <details>
-        <summary style="margin-top: 10px; color: #555;">Bases</summary>
-        
-        <!-- Contenedor de las tarjetas de productos -->
+        <summary style="margin-top: 10px; color: #555; cursor: pointer;">Base</summary>
         <div class="productos" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px; align-items: center;">
           
           <div class="card maquillaje">
@@ -104,23 +104,48 @@
         </div>
       </details>
       
-      <p>Correctores</p>
-      <p>Labiales</p>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Corrector</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Polvo compacto</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Polvo traslúcido</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Iluminador</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Rubor</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Contorno</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Labios</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Delineadores</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Sombras</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Rímel</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cejas</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Brochas</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Esponjas</summary></details>
     </details>
 
+    <!-- ===== SKINCARE ===== -->
     <details>
       <summary><strong>🧴 Skincare</strong></summary>
-      <p>Serums</p>
-      <p>Limpiadores</p>
+      <details><summary style="margin-top: 10px; color: #555; cursor: pointer;">Primer</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Fijador</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cremas para manos</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Mascarillas faciales</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Mascarillas en general</summary></details>
     </details>
 
+    <!-- ===== MANICURA ===== -->
     <details>
-      <summary><strong>💎 Accesorios</strong></summary>
-      <p>Vinchas</p>
-      <p>Broches</p>
+      <summary><strong>💅 Manicura</strong></summary>
+      <details><summary style="margin-top: 10px; color: #555; cursor: pointer;">Esmaltes</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Uñas postizas</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Cortaúñas</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Pegamento para uñas</summary></details>
+      <details><summary style="margin-top: 8px; color: #555; cursor: pointer;">Limas</summary></details>
     </details>
-  </aside>
+    
+    <!-- ===== COMPLEMENTOS ===== -->
+    <details>
+      <summary><strong>✨ Complementos</strong></summary>
+      <!-- Acá vas a poder pegar directamente el contenedor <div class="productos"> con tus tarjetas cuando quieras subir imágenes, sin necesidad de crear subcategorías -->
+    </details>
 
+  </aside>
   <!-- ================= CARRITO ================= -->
   <aside class="carrito">
     <span class="cerrar-carrito" onclick="cerrarTodo()">✖</span>
